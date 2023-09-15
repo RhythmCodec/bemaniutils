@@ -240,1941 +240,2033 @@ class SoundVoltexExceedGear(
 
     def __get_skill_analyzer_courses(self) -> List[Dict[str, Any]]:
         return [
-            # Skill LV.01
-            {
-                'season_id': 1,
-                'skill_level': 1,
-                'tracks': [
-                    {
-                        'id': 1383,
-                        'type': self.CHART_TYPE_NOVICE,
-                    },
-                    {
-                        'id': 334,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 774,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                ],
-            },
-            {
-                'season_id': 2,
-                'skill_level': 1,
-                'tracks': [
-                    {
-                        'id': 1066,
-                        'type': self.CHART_TYPE_NOVICE,
-                    },
-                    {
-                        'id': 1054,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 1055,
-                        'type': self.CHART_TYPE_NOVICE,
-                    },
-                ],
-            },
-            {
-                'season_id': 3,
-                'skill_level': 1,
-                'tracks': [
-                    {
-                        'id': 1376,
-                        'type': self.CHART_TYPE_NOVICE,
-                    },
-                    {
-                        'id': 564,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 87,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                ],
-            },
-            {
-                'season_id': 5,
-                'skill_level': 1,
-                'tracks': [
-                    {
-                        'id': 1374,
-                        'type': self.CHART_TYPE_NOVICE,
-                    },
-                    {
-                        'id': 936,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 314,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                ],
-            },
-            {
-                'season_id': 7,
-                'skill_level': 1,
-                'tracks': [
-                    {
-                        'id': 1718,
-                        'type': self.CHART_TYPE_NOVICE,
-                    },
-                    {
-                        'id': 144,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 568,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                ],
-            },
-            {
-                'season_id': 8,
-                'skill_level': 1,
-                'tracks': [
-                    {
-                        'id': 271,
-                        'type': self.CHART_TYPE_NOVICE,
-                    },
-                    {
-                        'id': 209,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 1083,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                ],
-            },
-            {
-                'season_id': 9,
-                'skill_level': 1,
-                'tracks': [
-                    {
-                        'id': 1526,
-                        'type': self.CHART_TYPE_NOVICE,
-                    },
-                    {
-                        'id': 84,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 76,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                ],
-            },
-            {
-                'season_id': 10,
-                'skill_level': 1,
-                'tracks': [
-                    {
-                        'id': 1441,
-                        'type': self.CHART_TYPE_NOVICE,
-                    },
-                    {
-                        'id': 274,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 569,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                ],
-            },
-            # Skill LV.02
-            {
-                'season_id': 1,
-                'skill_level': 2,
-                'tracks': [
-                    {
-                        'id': 74,
-                        'type': self.CHART_TYPE_NOVICE,
-                    },
-                    {
-                        'id': 771,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 1125,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                ],
-            },
-            {
-                'season_id': 2,
-                'skill_level': 2,
-                'tracks': [
-                    {
-                        'id': 768,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 948,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 755,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                ],
-            },
-            {
-                'season_id': 3,
-                'skill_level': 2,
-                'tracks': [
-                    {
-                        'id': 34,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 932,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 945,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                ],
-            },
-            {
-                'season_id': 5,
-                'skill_level': 2,
-                'tracks': [
-                    {
-                        'id': 1221,
-                        'type': self.CHART_TYPE_NOVICE,
-                    },
-                    {
-                        'id': 169,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 254,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                ],
-            },
-            {
-                'season_id': 7,
-                'skill_level': 2,
-                'tracks': [
-                    {
-                        'id': 1659,
-                        'type': self.CHART_TYPE_NOVICE,
-                    },
-                    {
-                        'id': 739,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 561,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                ],
-            },
-            {
-                'season_id': 8,
-                'skill_level': 2,
-                'tracks': [
-                    {
-                        'id': 1088,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 973,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 22,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                ],
-            },
-            {
-                'season_id': 9,
-                'skill_level': 2,
-                'tracks': [
-                    {
-                        'id': 171,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 474,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 18,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                ],
-            },
-            {
-                'season_id': 10,
-                'skill_level': 2,
-                'tracks': [
-                    {
-                        'id': 1057,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 865,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 721,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                ],
-            },
-            # Skill LV.03
-            {
-                'season_id': 1,
-                'skill_level': 3,
-                'tracks': [
-                    {
-                        'id': 784,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 1126,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 1075,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                ],
-            },
-            {
-                'season_id': 2,
-                'skill_level': 3,
-                'tracks': [
-                    {
-                        'id': 401,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 1320,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 485,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                ],
-            },
-            {
-                'season_id': 3,
-                'skill_level': 3,
-                'tracks': [
-                    {
-                        'id': 1132,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 1549,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 380,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                ],
-            },
-            {
-                'season_id': 5,
-                'skill_level': 3,
-                'tracks': [
-                    {
-                        'id': 1429,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 462,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 237,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                ],
-            },
-            {
-                'season_id': 7,
-                'skill_level': 3,
-                'tracks': [
-                    {
-                        'id': 1110,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 1513,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 732,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                ],
-            },
-            {
-                'season_id': 8,
-                'skill_level': 3,
-                'tracks': [
-                    {
-                        'id': 157,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 1039,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 972,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                ],
-            },
-            {
-                'season_id': 9,
-                'skill_level': 3,
-                'tracks': [
-                    {
-                        'id': 281,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 1254,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 997,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                ],
-            },
-            {
-                'season_id': 10,
-                'skill_level': 3,
-                'tracks': [
-                    {
-                        'id': 673,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 954,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 1867,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                ],
-            },
-            # Skill LV.04
-            {
-                'season_id': 1,
-                'skill_level': 4,
-                'tracks': [
-                    {
-                        'id': 505,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 1403,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 609,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                ],
-            },
-            {
-                'season_id': 2,
-                'skill_level': 4,
-                'tracks': [
-                    {
-                        'id': 295,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 255,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 1029,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                ],
-            },
-            {
-                'season_id': 3,
-                'skill_level': 4,
-                'tracks': [
-                    {
-                        'id': 130,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 1204,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 1424,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                ],
-            },
-            {
-                'season_id': 5,
-                'skill_level': 4,
-                'tracks': [
-                    {
-                        'id': 449,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 329,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 1293,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                ],
-            },
-            {
-                'season_id': 7,
-                'skill_level': 4,
-                'tracks': [
-                    {
-                        'id': 174,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 1217,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 617,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                ],
-            },
-            {
-                'season_id': 8,
-                'skill_level': 4,
-                'tracks': [
-                    {
-                        'id': 1395,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 238,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 1342,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                ],
-            },
-            {
-                'season_id': 9,
-                'skill_level': 4,
-                'tracks': [
-                    {
-                        'id': 417,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 1572,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 539,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                ],
-            },
-            {
-                'season_id': 10,
-                'skill_level': 4,
-                'tracks': [
-                    {
-                        'id': 461,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 538,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 1510,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                ],
-            },
-            # Skill LV.05
-            {
-                'season_id': 1,
-                'skill_level': 5,
-                'tracks': [
-                    {
-                        'id': 630,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 1598,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 1475,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                ],
-            },
-            {
-                'season_id': 2,
-                'skill_level': 5,
-                'tracks': [
-                    {
-                        'id': 1420,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 1001,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 1611,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                ],
-            },
-            {
-                'season_id': 3,
-                'skill_level': 5,
-                'tracks': [
-                    {
-                        'id': 48,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 565,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 1109,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                ],
-            },
-            {
-                'season_id': 5,
-                'skill_level': 5,
-                'tracks': [
-                    {
-                        'id': 486,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 920,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 1318,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                ],
-            },
-            {
-                'season_id': 7,
-                'skill_level': 5,
-                'tracks': [
-                    {
-                        'id': 1564,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 1679,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 285,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                ],
-            },
-            {
-                'season_id': 8,
-                'skill_level': 5,
-                'tracks': [
-                    {
-                        'id': 283,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 1551,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 573,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                ],
-            },
-            {
-                'season_id': 9,
-                'skill_level': 5,
-                'tracks': [
-                    {
-                        'id': 1701,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 523,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 477,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                ],
-            },
-            {
-                'season_id': 10,
-                'skill_level': 5,
-                'tracks': [
-                    {
-                        'id': 1300,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 1697,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 476,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                ],
-            },
-            # Skill LV.06
-            {
-                'season_id': 1,
-                'skill_level': 6,
-                'tracks': [
-                    {
-                        'id': 1154,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 1238,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 590,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                ],
-            },
-            {
-                'season_id': 2,
-                'skill_level': 6,
-                'tracks': [
-                    {
-                        'id': 1338,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 79,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 1151,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                ],
-            },
-            {
-                'season_id': 3,
-                'skill_level': 6,
-                'tracks': [
-                    {
-                        'id': 1534,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 1398,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 1312,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                ],
-            },
-            {
-                'season_id': 5,
-                'skill_level': 6,
-                'tracks': [
-                    {
-                        'id': 1288,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 256,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 1445,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                ],
-            },
-            {
-                'season_id': 7,
-                'skill_level': 6,
-                'tracks': [
-                    {
-                        'id': 545,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 1563,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 916,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                ],
-            },
-            {
-                'season_id': 8,
-                'skill_level': 6,
-                'tracks': [
-                    {
-                        'id': 1565,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 1409,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 202,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                ],
-            },
-            {
-                'season_id': 9,
-                'skill_level': 6,
-                'tracks': [
-                    {
-                        'id': 1412,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 1417,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 1081,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                ],
-            },
-            {
-                'season_id': 10,
-                'skill_level': 6,
-                'tracks': [
-                    {
-                        'id': 1115,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 1425,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 756,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                ],
-            },
-            # Skill LV.07
-            {
-                'season_id': 1,
-                'skill_level': 7,
-                'tracks': [
-                    {
-                        'id': 1606,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 834,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 820,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                ],
-            },
-            {
-                'season_id': 2,
-                'skill_level': 7,
-                'tracks': [
-                    {
-                        'id': 1047,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 982,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 1042,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                ],
-            },
-            {
-                'season_id': 3,
-                'skill_level': 7,
-                'tracks': [
-                    {
-                        'id': 962,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 1560,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 357,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                ],
-            },
-            {
-                'season_id': 5,
-                'skill_level': 7,
-                'tracks': [
-                    {
-                        'id': 1129,
-                        'type': self.CHART_TYPE_NOVICE,
-                    },
-                    {
-                        'id': 1349,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 1608,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                ],
-            },
-            {
-                'season_id': 5,
-                'skill_level': 7,
-                'tracks': [
-                    {
-                        'id': 1224,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 989,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 688,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                ],
-            },
-            {
-                'season_id': 7,
-                'skill_level': 7,
-                'tracks': [
-                    {
-                        'id': 866,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 330,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 669,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                ],
-            },
-            {
-                'season_id': 8,
-                'skill_level': 7,
-                'tracks': [
-                    {
-                        'id': 1250,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 434,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 690,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                ],
-            },
-            {
-                'season_id': 9,
-                'skill_level': 7,
-                'tracks': [
-                    {
-                        'id': 315,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 861,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 1303,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                ],
-            },
-            {
-                'season_id': 10,
-                'skill_level': 7,
-                'tracks': [
-                    {
-                        'id': 411,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 990,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                    {
-                        'id': 514,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                ],
-            },
-            # Skill LV.08
-            {
-                'season_id': 1,
-                'skill_level': 8,
-                'tracks': [
-                    {
-                        'id': 183,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 1602,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 173,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                ],
-            },
-            {
-                'season_id': 2,
-                'skill_level': 8,
-                'tracks': [
-                    {
-                        'id': 664,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 1370,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 838,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                ],
-            },
-            {
-                'season_id': 3,
-                'skill_level': 8,
-                'tracks': [
-                    {
-                        'id': 965,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 906,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 579,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                ],
-            },
-            {
-                'season_id': 5,
-                'skill_level': 8,
-                'tracks': [
-                    {
-                        'id': 492,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 930,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 651,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                ],
-            },
-            {
-                'season_id': 5,
-                'skill_level': 8,
-                'tracks': [
-                    {
-                        'id': 1201,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 980,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 900,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                ],
-            },
-            {
-                'season_id': 7,
-                'skill_level': 8,
-                'tracks': [
-                    {
-                        'id': 399,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 1166,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 1305,
-                        'type': self.CHART_TYPE_INFINITE,
-                    },
-                ],
-            },
-            {
-                'season_id': 8,
-                'skill_level': 8,
-                'tracks': [
-                    {
-                        'id': 460,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 772,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 891,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                ],
-            },
-            {
-                'season_id': 9,
-                'skill_level': 8,
-                'tracks': [
-                    {
-                        'id': 484,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 905,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 1539,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                ],
-            },
-            {
-                'season_id': 10,
-                'skill_level': 8,
-                'tracks': [
-                    {
-                        'id': 778,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 1727,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 1127,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                ],
-            },
-            # Skill LV.09
-            {
-                'season_id': 1,
-                'skill_level': 9,
-                'tracks': [
-                    {
-                        'id': 1418,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                    {
-                        'id': 469,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 1413,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                ],
-            },
-            {
-                'season_id': 2,
-                'skill_level': 9,
-                'tracks': [
-                    {
-                        'id': 624,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 1113,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                    {
-                        'id': 1629,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                ],
-            },
-            {
-                'season_id': 3,
-                'skill_level': 9,
-                'tracks': [
-                    {
-                        'id': 332,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 36,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 1476,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                ],
-            },
-            {
-                'season_id': 5,
-                'skill_level': 9,
-                'tracks': [
-                    {
-                        'id': 1607,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 1240,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 510,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                ],
-            },
-            {
-                'season_id': 5,
-                'skill_level': 9,
-                'tracks': [
-                    {
-                        'id': 1155,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                    {
-                        'id': 937,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                    {
-                        'id': 1243,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                ],
-            },
-            {
-                'season_id': 7,
-                'skill_level': 9,
-                'tracks': [
-                    {
-                        'id': 882,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                    {
-                        'id': 1759,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                    {
-                        'id': 993,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                ],
-            },
-            {
-                'season_id': 8,
-                'skill_level': 9,
-                'tracks': [
-                    {
-                        'id': 234,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 886,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                    {
-                        'id': 1716,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                ],
-            },
-            {
-                'season_id': 9,
-                'skill_level': 9,
-                'tracks': [
-                    {
-                        'id': 1019,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                    {
-                        'id': 943,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                    {
-                        'id': 1208,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                ],
-            },
-            {
-                'season_id': 10,
-                'skill_level': 9,
-                'tracks': [
-                    {
-                        'id': 737,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 1485,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 1262,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                ],
-            },
-            # Skill LV.10
-            {
-                'season_id': 1,
-                'skill_level': 10,
-                'tracks': [
-                    {
-                        'id': 1596,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                    {
-                        'id': 1649,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                    {
-                        'id': 229,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                ],
-            },
-            {
-                'season_id': 2,
-                'skill_level': 10,
-                'tracks': [
-                    {
-                        'id': 1595,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                    {
-                        'id': 1657,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                    {
-                        'id': 658,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                ],
-            },
-            {
-                'season_id': 3,
-                'skill_level': 10,
-                'tracks': [
-                    {
-                        'id': 1533,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                    {
-                        'id': 1597,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                    {
-                        'id': 1541,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                ],
-            },
-            {
-                'season_id': 5,
-                'skill_level': 10,
-                'tracks': [
-                    {
-                        'id': 1251,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                    {
-                        'id': 1540,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                    {
-                        'id': 1712,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                ],
-            },
-            {
-                'season_id': 5,
-                'skill_level': 10,
-                'tracks': [
-                    {
-                        'id': 1158,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                    {
-                        'id': 1341,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                    {
-                        'id': 1238,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                ],
-            },
-            {
-                'season_id': 7,
-                'skill_level': 10,
-                'tracks': [
-                    {
-                        'id': 1644,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                    {
-                        'id': 1331,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                    {
-                        'id': 1625,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                ],
-            },
-            {
-                'season_id': 8,
-                'skill_level': 10,
-                'tracks': [
-                    {
-                        'id': 1760,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                    {
-                        'id': 730,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 967,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                ],
-            },
-            {
-                'season_id': 9,
-                'skill_level': 10,
-                'tracks': [
-                    {
-                        'id': 786,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 837,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 1200,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                ],
-            },
-            {
-                'season_id': 10,
-                'skill_level': 10,
-                'tracks': [
-                    {
-                        'id': 832,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 1749,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                    {
-                        'id': 633,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                ],
-            },
-            # Skill LV.11
-            {
-                'season_id': 1,
-                'skill_level': 11,
-                'tracks': [
-                    {
-                        'id': 1651,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                    {
-                        'id': 1105,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                    {
-                        'id': 1152,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                ],
-            },
-            {
-                'season_id': 2,
-                'skill_level': 11,
-                'tracks': [
-                    {
-                        'id': 1647,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                    {
-                        'id': 1587,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                    {
-                        'id': 333,
-                        'type': self.CHART_TYPE_INFINITE,
-                    },
-                ],
-            },
-            {
-                'season_id': 5,
-                'skill_level': 11,
-                'tracks': [
-                    {
-                        'id': 1143,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                    {
-                        'id': 1298,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                    {
-                        'id': 1619,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                ],
-            },
-            {
-                'season_id': 5,
-                'skill_level': 11,
-                'tracks': [
-                    {
-                        'id': 374,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 1277,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                    {
-                        'id': 73,
-                        'type': self.CHART_TYPE_INFINITE,
-                    },
-                ],
-            },
-            {
-                'season_id': 7,
-                'skill_level': 11,
-                'tracks': [
-                    {
-                        'id': 1550,
-                        'type': self.CHART_TYPE_INFINITE,
-                    },
-                    {
-                        'id': 1366,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                    {
-                        'id': 1722,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                ],
-            },
-            {
-                'season_id': 8,
-                'skill_level': 11,
-                'tracks': [
-                    {
-                        'id': 1776,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                    {
-                        'id': 1365,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                    {
-                        'id': 911,
-                        'type': self.CHART_TYPE_INFINITE,
-                    },
-                ],
-            },
-            {
-                'season_id': 9,
-                'skill_level': 11,
-                'tracks': [
-                    {
-                        'id': 979,
-                        'type': self.CHART_TYPE_INFINITE,
-                    },
-                    {
-                        'id': 1459,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                    {
-                        'id': 1774,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                ],
-            },
-            {
-                'season_id': 10,
-                'skill_level': 11,
-                'tracks': [
-                    {
-                        'id': 725,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 1201,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                    {
-                        'id': 654,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                ],
-            },
-            # Skill LV.INF
-            {
-                'season_id': 1,
-                'skill_level': 12,
-                'tracks': [
-                    {
-                        'id': 1664,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                    {
-                        'id': 1528,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                    {
-                        'id': 1185,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                ],
-            },
-            {
-                'season_id': 2,
-                'skill_level': 12,
-                'tracks': [
-                    {
-                        'id': 1363,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                    {
-                        'id': 692,
-                        'type': self.CHART_TYPE_INFINITE,
-                    },
-                    {
-                        'id': 1270,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                ],
-            },
-            {
-                'season_id': 5,
-                'skill_level': 12,
-                'tracks': [
-                    {
-                        'id': 1639,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                    {
-                        'id': 1496,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                    {
-                        'id': 1766,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                ],
-            },
-            {
-                'season_id': 5,
-                'skill_level': 12,
-                'tracks': [
-                    {
-                        'id': 1104,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                    {
-                        'id': 1189,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                    {
-                        'id': 1362,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                ],
-            },
-            {
-                'season_id': 7,
-                'skill_level': 8,
-                'tracks': [
-                    {
-                        'id': 495,
-                        'type': self.CHART_TYPE_INFINITE,
-                    },
-                    {
-                        'id': 1464,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                    {
-                        'id': 1767,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                ],
-            },
-            {
-                'season_id': 8,
-                'skill_level': 12,
-                'tracks': [
-                    {
-                        'id': 1364,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                    {
-                        'id': 1661,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                    {
-                        'id': 1099,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                ],
-            },
-            {
-                'season_id': 9,
-                'skill_level': 12,
-                'tracks': [
-                    {
-                        'id': 914,
-                        'type': self.CHART_TYPE_INFINITE,
-                    },
-                    {
-                        'id': 376,
-                        'type': self.CHART_TYPE_INFINITE,
-                    },
-                    {
-                        'id': 1362,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                ],
-            },
-            {
-                'season_id': 10,
-                'skill_level': 12,
-                'tracks': [
-                    {
-                        'id': 704,
-                        'type': self.CHART_TYPE_INFINITE,
-                    },
-                    {
-                        'id': 1176,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                    {
-                        'id': 1889,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                ],
-            },
-            # BEMANI MASTER KOREA 2021
-            {
-                'season_id': 4,
-                'course_id': 1,
-                'course_name': 'BEMANI MASTER KOREA 2021 ENJOY COURSE',
-                'skill_name_id': self.GAME_SKILL_NAME_ID_BMK_2021,
-                'tracks': [
-                    {
-                        'id': 1641,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 1646,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 1642,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                ],
-            },
-            {
-                'season_id': 4,
-                'course_id': 2,
-                'course_name': 'BEMANI MASTER KOREA 2021 ENTRY COURSE',
-                'skill_name_id': self.GAME_SKILL_NAME_ID_BMK_2021,
-                'tracks': [
-                    {
-                        'id': 1641,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                    {
-                        'id': 1646,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                    {
-                        'id': 1642,
-                        'type': self.CHART_TYPE_MAXIMUM,
-                    },
-                ],
-            },
-            # 10TH YEAR
-            {
-                'season_id': 6,
-                'course_id': 1,
-                'course_name': '10周年記念コース(梅)',
-                'skill_name_id': self.GAME_SKILL_NAME_ID_10TH_YEAR,
-                'tracks': [
-                    {
-                        'id': 247,
-                        'type': self.CHART_TYPE_NOVICE,
-                    },
-                    {
-                        'id': 611,
-                        'type': self.CHART_TYPE_NOVICE,
-                    },
-                    {
-                        'id': 339,
-                        'type': self.CHART_TYPE_NOVICE,
-                    },
-                ],
-            },
-            {
-                'season_id': 6,
-                'course_id': 2,
-                'course_name': '10周年記念コース(竹)',
-                'skill_name_id': self.GAME_SKILL_NAME_ID_10TH_YEAR,
-                'tracks': [
-                    {
-                        'id': 247,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 611,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                    {
-                        'id': 339,
-                        'type': self.CHART_TYPE_ADVANCED,
-                    },
-                ],
-            },
-            {
-                'season_id': 6,
-                'course_id': 3,
-                'course_name': '10周年記念コース(松)',
-                'skill_name_id': self.GAME_SKILL_NAME_ID_10TH_YEAR,
-                'tracks': [
-                    {
-                        'id': 247,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 611,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 339,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                ],
-            },
-            {
-                'season_id': 6,
-                'course_id': 4,
-                'course_name': '10周年記念コース(極)',
-                'skill_name_id': self.GAME_SKILL_NAME_ID_10TH_YEAR,
-                'tracks': [
-                    {
-                        'id': 793,
-                        'type': self.CHART_TYPE_EXHAUST,
-                    },
-                    {
-                        'id': 247,
-                        'type': self.CHART_TYPE_INFINITE,
-                    },
-                    {
-                        'id': 339,
-                        'type': self.CHART_TYPE_INFINITE,
-                    },
-                ],
-            },
-        ]
+  {
+    'season_id': 1,
+    'skill_level': 1,
+    'tracks': [
+      {
+        'id': 1383,
+        'type': self.CHART_TYPE_NOVICE
+      },
+      {
+        'id': 334,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 774,
+        'type': self.CHART_TYPE_ADVANCED
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 2,
+    'skill_level': 1,
+    'tracks': [
+      {
+        'id': 1066,
+        'type': self.CHART_TYPE_NOVICE
+      },
+      {
+        'id': 1054,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 1055,
+        'type': self.CHART_TYPE_NOVICE
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 3,
+    'skill_level': 1,
+    'tracks': [
+      {
+        'id': 1376,
+        'type': self.CHART_TYPE_NOVICE
+      },
+      {
+        'id': 564,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 87,
+        'type': self.CHART_TYPE_ADVANCED
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 5,
+    'skill_level': 1,
+    'tracks': [
+      {
+        'id': 1374,
+        'type': self.CHART_TYPE_NOVICE
+      },
+      {
+        'id': 936,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 314,
+        'type': self.CHART_TYPE_ADVANCED
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 7,
+    'skill_level': 1,
+    'tracks': [
+      {
+        'id': 1718,
+        'type': self.CHART_TYPE_NOVICE
+      },
+      {
+        'id': 144,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 568,
+        'type': self.CHART_TYPE_ADVANCED
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 8,
+    'skill_level': 1,
+    'tracks': [
+      {
+        'id': 271,
+        'type': self.CHART_TYPE_NOVICE
+      },
+      {
+        'id': 209,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 1083,
+        'type': self.CHART_TYPE_ADVANCED
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 9,
+    'skill_level': 1,
+    'tracks': [
+      {
+        'id': 1526,
+        'type': self.CHART_TYPE_NOVICE
+      },
+      {
+        'id': 84,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 76,
+        'type': self.CHART_TYPE_ADVANCED
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 10,
+    'skill_level': 1,
+    'tracks': [
+      {
+        'id': 1441,
+        'type': self.CHART_TYPE_NOVICE
+      },
+      {
+        'id': 274,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 569,
+        'type': self.CHART_TYPE_ADVANCED
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 1,
+    'skill_level': 2,
+    'tracks': [
+      {
+        'id': 74,
+        'type': self.CHART_TYPE_NOVICE
+      },
+      {
+        'id': 771,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 1125,
+        'type': self.CHART_TYPE_ADVANCED
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 2,
+    'skill_level': 2,
+    'tracks': [
+      {
+        'id': 768,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 948,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 755,
+        'type': self.CHART_TYPE_ADVANCED
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 3,
+    'skill_level': 2,
+    'tracks': [
+      {
+        'id': 34,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 932,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 945,
+        'type': self.CHART_TYPE_ADVANCED
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 5,
+    'skill_level': 2,
+    'tracks': [
+      {
+        'id': 1221,
+        'type': self.CHART_TYPE_NOVICE
+      },
+      {
+        'id': 169,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 254,
+        'type': self.CHART_TYPE_ADVANCED
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 7,
+    'skill_level': 2,
+    'tracks': [
+      {
+        'id': 1659,
+        'type': self.CHART_TYPE_NOVICE
+      },
+      {
+        'id': 739,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 561,
+        'type': self.CHART_TYPE_ADVANCED
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 8,
+    'skill_level': 2,
+    'tracks': [
+      {
+        'id': 1088,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 973,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 22,
+        'type': self.CHART_TYPE_ADVANCED
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 9,
+    'skill_level': 2,
+    'tracks': [
+      {
+        'id': 171,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 474,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 18,
+        'type': self.CHART_TYPE_ADVANCED
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 10,
+    'skill_level': 2,
+    'tracks': [
+      {
+        'id': 1057,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 865,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 721,
+        'type': self.CHART_TYPE_ADVANCED
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 1,
+    'skill_level': 3,
+    'tracks': [
+      {
+        'id': 784,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 1126,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 1075,
+        'type': self.CHART_TYPE_ADVANCED
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 2,
+    'skill_level': 3,
+    'tracks': [
+      {
+        'id': 401,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 1320,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 485,
+        'type': self.CHART_TYPE_ADVANCED
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 3,
+    'skill_level': 3,
+    'tracks': [
+      {
+        'id': 1132,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 1549,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 380,
+        'type': self.CHART_TYPE_ADVANCED
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 5,
+    'skill_level': 3,
+    'tracks': [
+      {
+        'id': 1429,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 462,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 237,
+        'type': self.CHART_TYPE_ADVANCED
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 7,
+    'skill_level': 3,
+    'tracks': [
+      {
+        'id': 1110,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 1513,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 732,
+        'type': self.CHART_TYPE_ADVANCED
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 8,
+    'skill_level': 3,
+    'tracks': [
+      {
+        'id': 157,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 1039,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 972,
+        'type': self.CHART_TYPE_ADVANCED
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 9,
+    'skill_level': 3,
+    'tracks': [
+      {
+        'id': 281,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 1254,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 997,
+        'type': self.CHART_TYPE_ADVANCED
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 10,
+    'skill_level': 3,
+    'tracks': [
+      {
+        'id': 673,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 954,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 1867,
+        'type': self.CHART_TYPE_ADVANCED
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 1,
+    'skill_level': 4,
+    'tracks': [
+      {
+        'id': 505,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 1403,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 609,
+        'type': self.CHART_TYPE_ADVANCED
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 2,
+    'skill_level': 4,
+    'tracks': [
+      {
+        'id': 295,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 255,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 1029,
+        'type': self.CHART_TYPE_ADVANCED
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 3,
+    'skill_level': 4,
+    'tracks': [
+      {
+        'id': 130,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 1204,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 1424,
+        'type': self.CHART_TYPE_ADVANCED
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 5,
+    'skill_level': 4,
+    'tracks': [
+      {
+        'id': 449,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 329,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 1293,
+        'type': self.CHART_TYPE_ADVANCED
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 7,
+    'skill_level': 4,
+    'tracks': [
+      {
+        'id': 174,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 1217,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 617,
+        'type': self.CHART_TYPE_ADVANCED
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 8,
+    'skill_level': 4,
+    'tracks': [
+      {
+        'id': 1395,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 238,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 1342,
+        'type': self.CHART_TYPE_ADVANCED
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 9,
+    'skill_level': 4,
+    'tracks': [
+      {
+        'id': 417,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 1572,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 539,
+        'type': self.CHART_TYPE_ADVANCED
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 10,
+    'skill_level': 4,
+    'tracks': [
+      {
+        'id': 461,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 538,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 1510,
+        'type': self.CHART_TYPE_ADVANCED
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 1,
+    'skill_level': 5,
+    'tracks': [
+      {
+        'id': 630,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 1598,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 1475,
+        'type': self.CHART_TYPE_ADVANCED
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 2,
+    'skill_level': 5,
+    'tracks': [
+      {
+        'id': 1420,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 1001,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 1611,
+        'type': self.CHART_TYPE_ADVANCED
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 3,
+    'skill_level': 5,
+    'tracks': [
+      {
+        'id': 48,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 565,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 1109,
+        'type': self.CHART_TYPE_EXHAUST
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 5,
+    'skill_level': 5,
+    'tracks': [
+      {
+        'id': 486,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 920,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 1318,
+        'type': self.CHART_TYPE_EXHAUST
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 7,
+    'skill_level': 5,
+    'tracks': [
+      {
+        'id': 1564,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 1679,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 285,
+        'type': self.CHART_TYPE_EXHAUST
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 8,
+    'skill_level': 5,
+    'tracks': [
+      {
+        'id': 283,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 1551,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 573,
+        'type': self.CHART_TYPE_EXHAUST
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 9,
+    'skill_level': 5,
+    'tracks': [
+      {
+        'id': 1701,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 523,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 477,
+        'type': self.CHART_TYPE_EXHAUST
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 10,
+    'skill_level': 5,
+    'tracks': [
+      {
+        'id': 1300,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 1697,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 476,
+        'type': self.CHART_TYPE_EXHAUST
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 1,
+    'skill_level': 6,
+    'tracks': [
+      {
+        'id': 1154,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 1238,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 590,
+        'type': self.CHART_TYPE_EXHAUST
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 2,
+    'skill_level': 6,
+    'tracks': [
+      {
+        'id': 1338,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 79,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 1151,
+        'type': self.CHART_TYPE_EXHAUST
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 3,
+    'skill_level': 6,
+    'tracks': [
+      {
+        'id': 1534,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 1398,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 1312,
+        'type': self.CHART_TYPE_EXHAUST
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 5,
+    'skill_level': 6,
+    'tracks': [
+      {
+        'id': 1288,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 256,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 1445,
+        'type': self.CHART_TYPE_EXHAUST
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 7,
+    'skill_level': 6,
+    'tracks': [
+      {
+        'id': 545,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 1563,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 916,
+        'type': self.CHART_TYPE_EXHAUST
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 8,
+    'skill_level': 6,
+    'tracks': [
+      {
+        'id': 1565,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 1409,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 202,
+        'type': self.CHART_TYPE_EXHAUST
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 9,
+    'skill_level': 6,
+    'tracks': [
+      {
+        'id': 1412,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 1417,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 1081,
+        'type': self.CHART_TYPE_EXHAUST
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 10,
+    'skill_level': 6,
+    'tracks': [
+      {
+        'id': 1115,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 1425,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 756,
+        'type': self.CHART_TYPE_EXHAUST
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 1,
+    'skill_level': 7,
+    'tracks': [
+      {
+        'id': 1606,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 834,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 820,
+        'type': self.CHART_TYPE_MAXIMUM
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 2,
+    'skill_level': 7,
+    'tracks': [
+      {
+        'id': 1047,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 982,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 1042,
+        'type': self.CHART_TYPE_EXHAUST
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 3,
+    'skill_level': 7,
+    'tracks': [
+      {
+        'id': 962,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 1560,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 357,
+        'type': self.CHART_TYPE_EXHAUST
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 5,
+    'skill_level': 7,
+    'tracks': [
+      {
+        'id': 1129,
+        'type': self.CHART_TYPE_NOVICE
+      },
+      {
+        'id': 1349,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 1608,
+        'type': self.CHART_TYPE_ADVANCED
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 5,
+    'skill_level': 7,
+    'tracks': [
+      {
+        'id': 1224,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 989,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 688,
+        'type': self.CHART_TYPE_EXHAUST
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 7,
+    'skill_level': 7,
+    'tracks': [
+      {
+        'id': 866,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 330,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 669,
+        'type': self.CHART_TYPE_EXHAUST
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 8,
+    'skill_level': 7,
+    'tracks': [
+      {
+        'id': 1250,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 434,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 690,
+        'type': self.CHART_TYPE_EXHAUST
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 9,
+    'skill_level': 7,
+    'tracks': [
+      {
+        'id': 315,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 861,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 1303,
+        'type': self.CHART_TYPE_EXHAUST
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 10,
+    'skill_level': 7,
+    'tracks': [
+      {
+        'id': 411,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 990,
+        'type': self.CHART_TYPE_MAXIMUM
+      },
+      {
+        'id': 514,
+        'type': self.CHART_TYPE_EXHAUST
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 1,
+    'skill_level': 8,
+    'tracks': [
+      {
+        'id': 183,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 1602,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 173,
+        'type': self.CHART_TYPE_EXHAUST
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 2,
+    'skill_level': 8,
+    'tracks': [
+      {
+        'id': 664,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 1370,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 838,
+        'type': self.CHART_TYPE_EXHAUST
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 3,
+    'skill_level': 8,
+    'tracks': [
+      {
+        'id': 965,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 906,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 579,
+        'type': self.CHART_TYPE_EXHAUST
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 5,
+    'skill_level': 8,
+    'tracks': [
+      {
+        'id': 492,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 930,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 651,
+        'type': self.CHART_TYPE_EXHAUST
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 5,
+    'skill_level': 8,
+    'tracks': [
+      {
+        'id': 1201,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 980,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 900,
+        'type': self.CHART_TYPE_EXHAUST
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 7,
+    'skill_level': 8,
+    'tracks': [
+      {
+        'id': 399,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 1166,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 1305,
+        'type': self.CHART_TYPE_INFINITE
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 8,
+    'skill_level': 8,
+    'tracks': [
+      {
+        'id': 460,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 772,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 891,
+        'type': self.CHART_TYPE_MAXIMUM
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 9,
+    'skill_level': 8,
+    'tracks': [
+      {
+        'id': 484,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 905,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 1539,
+        'type': self.CHART_TYPE_MAXIMUM
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 10,
+    'skill_level': 8,
+    'tracks': [
+      {
+        'id': 778,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 1727,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 1127,
+        'type': self.CHART_TYPE_MAXIMUM
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 1,
+    'skill_level': 9,
+    'tracks': [
+      {
+        'id': 1418,
+        'type': self.CHART_TYPE_MAXIMUM
+      },
+      {
+        'id': 469,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 1413,
+        'type': self.CHART_TYPE_MAXIMUM
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 2,
+    'skill_level': 9,
+    'tracks': [
+      {
+        'id': 624,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 1113,
+        'type': self.CHART_TYPE_MAXIMUM
+      },
+      {
+        'id': 1629,
+        'type': self.CHART_TYPE_MAXIMUM
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 3,
+    'skill_level': 9,
+    'tracks': [
+      {
+        'id': 332,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 36,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 1476,
+        'type': self.CHART_TYPE_MAXIMUM
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 5,
+    'skill_level': 9,
+    'tracks': [
+      {
+        'id': 1607,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 1240,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 510,
+        'type': self.CHART_TYPE_EXHAUST
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 5,
+    'skill_level': 9,
+    'tracks': [
+      {
+        'id': 1155,
+        'type': self.CHART_TYPE_MAXIMUM
+      },
+      {
+        'id': 937,
+        'type': self.CHART_TYPE_MAXIMUM
+      },
+      {
+        'id': 1243,
+        'type': self.CHART_TYPE_MAXIMUM
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 7,
+    'skill_level': 9,
+    'tracks': [
+      {
+        'id': 882,
+        'type': self.CHART_TYPE_MAXIMUM
+      },
+      {
+        'id': 1759,
+        'type': self.CHART_TYPE_MAXIMUM
+      },
+      {
+        'id': 993,
+        'type': self.CHART_TYPE_MAXIMUM
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 8,
+    'skill_level': 9,
+    'tracks': [
+      {
+        'id': 234,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 886,
+        'type': self.CHART_TYPE_MAXIMUM
+      },
+      {
+        'id': 1716,
+        'type': self.CHART_TYPE_MAXIMUM
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 9,
+    'skill_level': 9,
+    'tracks': [
+      {
+        'id': 1019,
+        'type': self.CHART_TYPE_MAXIMUM
+      },
+      {
+        'id': 943,
+        'type': self.CHART_TYPE_MAXIMUM
+      },
+      {
+        'id': 1208,
+        'type': self.CHART_TYPE_MAXIMUM
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 10,
+    'skill_level': 9,
+    'tracks': [
+      {
+        'id': 737,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 1485,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 1262,
+        'type': self.CHART_TYPE_MAXIMUM
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 1,
+    'skill_level': 10,
+    'tracks': [
+      {
+        'id': 1596,
+        'type': self.CHART_TYPE_MAXIMUM
+      },
+      {
+        'id': 1649,
+        'type': self.CHART_TYPE_MAXIMUM
+      },
+      {
+        'id': 229,
+        'type': self.CHART_TYPE_EXHAUST
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 2,
+    'skill_level': 10,
+    'tracks': [
+      {
+        'id': 1595,
+        'type': self.CHART_TYPE_MAXIMUM
+      },
+      {
+        'id': 1657,
+        'type': self.CHART_TYPE_MAXIMUM
+      },
+      {
+        'id': 658,
+        'type': self.CHART_TYPE_EXHAUST
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 3,
+    'skill_level': 10,
+    'tracks': [
+      {
+        'id': 1533,
+        'type': self.CHART_TYPE_MAXIMUM
+      },
+      {
+        'id': 1597,
+        'type': self.CHART_TYPE_MAXIMUM
+      },
+      {
+        'id': 1541,
+        'type': self.CHART_TYPE_MAXIMUM
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 5,
+    'skill_level': 10,
+    'tracks': [
+      {
+        'id': 1251,
+        'type': self.CHART_TYPE_MAXIMUM
+      },
+      {
+        'id': 1540,
+        'type': self.CHART_TYPE_MAXIMUM
+      },
+      {
+        'id': 1712,
+        'type': self.CHART_TYPE_MAXIMUM
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 5,
+    'skill_level': 10,
+    'tracks': [
+      {
+        'id': 1158,
+        'type': self.CHART_TYPE_MAXIMUM
+      },
+      {
+        'id': 1341,
+        'type': self.CHART_TYPE_MAXIMUM
+      },
+      {
+        'id': 1238,
+        'type': self.CHART_TYPE_MAXIMUM
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 7,
+    'skill_level': 10,
+    'tracks': [
+      {
+        'id': 1644,
+        'type': self.CHART_TYPE_MAXIMUM
+      },
+      {
+        'id': 1331,
+        'type': self.CHART_TYPE_MAXIMUM
+      },
+      {
+        'id': 1625,
+        'type': self.CHART_TYPE_MAXIMUM
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 8,
+    'skill_level': 10,
+    'tracks': [
+      {
+        'id': 1760,
+        'type': self.CHART_TYPE_MAXIMUM
+      },
+      {
+        'id': 730,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 967,
+        'type': self.CHART_TYPE_MAXIMUM
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 9,
+    'skill_level': 10,
+    'tracks': [
+      {
+        'id': 786,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 837,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 1200,
+        'type': self.CHART_TYPE_MAXIMUM
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 10,
+    'skill_level': 10,
+    'tracks': [
+      {
+        'id': 832,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 1749,
+        'type': self.CHART_TYPE_MAXIMUM
+      },
+      {
+        'id': 633,
+        'type': self.CHART_TYPE_EXHAUST
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 1,
+    'skill_level': 11,
+    'tracks': [
+      {
+        'id': 1651,
+        'type': self.CHART_TYPE_MAXIMUM
+      },
+      {
+        'id': 1105,
+        'type': self.CHART_TYPE_MAXIMUM
+      },
+      {
+        'id': 1152,
+        'type': self.CHART_TYPE_MAXIMUM
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 2,
+    'skill_level': 11,
+    'tracks': [
+      {
+        'id': 1647,
+        'type': self.CHART_TYPE_MAXIMUM
+      },
+      {
+        'id': 1587,
+        'type': self.CHART_TYPE_MAXIMUM
+      },
+      {
+        'id': 333,
+        'type': self.CHART_TYPE_INFINITE
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 5,
+    'skill_level': 11,
+    'tracks': [
+      {
+        'id': 1143,
+        'type': self.CHART_TYPE_MAXIMUM
+      },
+      {
+        'id': 1298,
+        'type': self.CHART_TYPE_MAXIMUM
+      },
+      {
+        'id': 1619,
+        'type': self.CHART_TYPE_MAXIMUM
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 5,
+    'skill_level': 11,
+    'tracks': [
+      {
+        'id': 374,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 1277,
+        'type': self.CHART_TYPE_MAXIMUM
+      },
+      {
+        'id': 73,
+        'type': self.CHART_TYPE_INFINITE
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 7,
+    'skill_level': 11,
+    'tracks': [
+      {
+        'id': 1550,
+        'type': self.CHART_TYPE_INFINITE
+      },
+      {
+        'id': 1366,
+        'type': self.CHART_TYPE_MAXIMUM
+      },
+      {
+        'id': 1722,
+        'type': self.CHART_TYPE_MAXIMUM
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 8,
+    'skill_level': 11,
+    'tracks': [
+      {
+        'id': 1776,
+        'type': self.CHART_TYPE_MAXIMUM
+      },
+      {
+        'id': 1365,
+        'type': self.CHART_TYPE_MAXIMUM
+      },
+      {
+        'id': 911,
+        'type': self.CHART_TYPE_INFINITE
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 9,
+    'skill_level': 11,
+    'tracks': [
+      {
+        'id': 979,
+        'type': self.CHART_TYPE_INFINITE
+      },
+      {
+        'id': 1459,
+        'type': self.CHART_TYPE_MAXIMUM
+      },
+      {
+        'id': 1774,
+        'type': self.CHART_TYPE_MAXIMUM
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 10,
+    'skill_level': 11,
+    'tracks': [
+      {
+        'id': 725,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 1201,
+        'type': self.CHART_TYPE_MAXIMUM
+      },
+      {
+        'id': 654,
+        'type': self.CHART_TYPE_EXHAUST
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 1,
+    'skill_level': 12,
+    'tracks': [
+      {
+        'id': 1664,
+        'type': self.CHART_TYPE_MAXIMUM
+      },
+      {
+        'id': 1528,
+        'type': self.CHART_TYPE_MAXIMUM
+      },
+      {
+        'id': 1185,
+        'type': self.CHART_TYPE_MAXIMUM
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 2,
+    'skill_level': 12,
+    'tracks': [
+      {
+        'id': 1363,
+        'type': self.CHART_TYPE_MAXIMUM
+      },
+      {
+        'id': 692,
+        'type': self.CHART_TYPE_INFINITE
+      },
+      {
+        'id': 1270,
+        'type': self.CHART_TYPE_MAXIMUM
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 5,
+    'skill_level': 12,
+    'tracks': [
+      {
+        'id': 1639,
+        'type': self.CHART_TYPE_MAXIMUM
+      },
+      {
+        'id': 1496,
+        'type': self.CHART_TYPE_MAXIMUM
+      },
+      {
+        'id': 1766,
+        'type': self.CHART_TYPE_MAXIMUM
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 5,
+    'skill_level': 12,
+    'tracks': [
+      {
+        'id': 1104,
+        'type': self.CHART_TYPE_MAXIMUM
+      },
+      {
+        'id': 1189,
+        'type': self.CHART_TYPE_MAXIMUM
+      },
+      {
+        'id': 1362,
+        'type': self.CHART_TYPE_MAXIMUM
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 7,
+    'skill_level': 8,
+    'tracks': [
+      {
+        'id': 495,
+        'type': self.CHART_TYPE_INFINITE
+      },
+      {
+        'id': 1464,
+        'type': self.CHART_TYPE_MAXIMUM
+      },
+      {
+        'id': 1767,
+        'type': self.CHART_TYPE_MAXIMUM
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 8,
+    'skill_level': 12,
+    'tracks': [
+      {
+        'id': 1364,
+        'type': self.CHART_TYPE_MAXIMUM
+      },
+      {
+        'id': 1661,
+        'type': self.CHART_TYPE_MAXIMUM
+      },
+      {
+        'id': 1099,
+        'type': self.CHART_TYPE_MAXIMUM
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 9,
+    'skill_level': 12,
+    'tracks': [
+      {
+        'id': 914,
+        'type': self.CHART_TYPE_INFINITE
+      },
+      {
+        'id': 376,
+        'type': self.CHART_TYPE_INFINITE
+      },
+      {
+        'id': 1362,
+        'type': self.CHART_TYPE_MAXIMUM
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 10,
+    'skill_level': 12,
+    'tracks': [
+      {
+        'id': 704,
+        'type': self.CHART_TYPE_INFINITE
+      },
+      {
+        'id': 1176,
+        'type': self.CHART_TYPE_MAXIMUM
+      },
+      {
+        'id': 1889,
+        'type': self.CHART_TYPE_MAXIMUM
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 4,
+    'course_id': 1,
+    'course_name': 'BEMANIMASTERKOREA2021ENJOYCOURSE',
+    'skill_name_id': self.GAME_SKILL_NAME_ID_BMK_2021,
+    'tracks': [
+      {
+        'id': 1641,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 1646,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 1642,
+        'type': self.CHART_TYPE_ADVANCED
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 4,
+    'course_id': 2,
+    'course_name': 'BEMANIMASTERKOREA2021ENTRYCOURSE',
+    'skill_name_id': self.GAME_SKILL_NAME_ID_BMK_2021,
+    'tracks': [
+      {
+        'id': 1641,
+        'type': self.CHART_TYPE_MAXIMUM
+      },
+      {
+        'id': 1646,
+        'type': self.CHART_TYPE_MAXIMUM
+      },
+      {
+        'id': 1642,
+        'type': self.CHART_TYPE_MAXIMUM
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 6,
+    'course_id': 1,
+    'course_name': '10周年記念コース(梅)',
+    'skill_name_id': self.GAME_SKILL_NAME_ID_10TH_YEAR,
+    'tracks': [
+      {
+        'id': 247,
+        'type': self.CHART_TYPE_NOVICE
+      },
+      {
+        'id': 611,
+        'type': self.CHART_TYPE_NOVICE
+      },
+      {
+        'id': 339,
+        'type': self.CHART_TYPE_NOVICE
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 6,
+    'course_id': 2,
+    'course_name': '10周年記念コース(竹)',
+    'skill_name_id': self.GAME_SKILL_NAME_ID_10TH_YEAR,
+    'tracks': [
+      {
+        'id': 247,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 611,
+        'type': self.CHART_TYPE_ADVANCED
+      },
+      {
+        'id': 339,
+        'type': self.CHART_TYPE_ADVANCED
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 6,
+    'course_id': 3,
+    'course_name': '10周年記念コース(松)',
+    'skill_name_id': self.GAME_SKILL_NAME_ID_10TH_YEAR,
+    'tracks': [
+      {
+        'id': 247,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 611,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 339,
+        'type': self.CHART_TYPE_EXHAUST
+      }
+    ],
+    'skill_type': 0
+  },
+  {
+    'season_id': 6,
+    'course_id': 4,
+    'course_name': '10周年記念コース(極)',
+    'skill_name_id': self.GAME_SKILL_NAME_ID_10TH_YEAR,
+    'tracks': [
+      {
+        'id': 793,
+        'type': self.CHART_TYPE_EXHAUST
+      },
+      {
+        'id': 247,
+        'type': self.CHART_TYPE_INFINITE
+      },
+      {
+        'id': 339,
+        'type': self.CHART_TYPE_INFINITE
+      }
+    ],
+    'skill_type': 0
+  }
+]
 
     def handle_game_sv6_common_request(self, request: Node) -> Node:
         game = Node.void('game')
@@ -2342,6 +2434,8 @@ class SoundVoltexExceedGear(
                                     course.get('skill_name_id', skill_name_ids.get(course.get('skill_level', -1), 0))))
             info.add_child(
                 Node.bool('matching_assist', course.get('skill_level', -1) >= 1 and course.get('skill_level', -1) <= 7))
+
+            info.add_child(Node.s16('skill_type',course.get('skill_type',0)))
 
             # Calculate clear rate and average score
             rate = getrates(course['season_id'], course.get('course_id', course.get('skill_level', -1)))
