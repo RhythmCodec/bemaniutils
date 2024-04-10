@@ -281,8 +281,20 @@ class SoundVoltexBase(CoreHandler, CardManagerHandler, PASELIHandler, Base):
         # If we have play stats, replace it
         if stats is not None:
             if raised:
+                # First we should save old ex score
+                oldEx = scoredata.get_dict("stats").get_int("exscore")
+
+                # compare which ex is higher and replace it
+                stats["exscore"] = max(oldEx, stats["exscore"])
+
                 # We have stats, and there's a new high score, update the stats
                 scoredata.replace_dict("stats", stats)
+
+            # Update Ex Score
+            if stats["exscore"]>scoredata.get_dict("stats").get_int("exscore"):
+                newstat = scoredata.get_dict("stats")
+                newstat.replace_int("exscore",stats["exscore"])
+                scoredata.replace_dict("stats",newstat)
             history.replace_dict("stats", stats)
 
         # Look up where this score was earned
