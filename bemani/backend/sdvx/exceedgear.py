@@ -5551,7 +5551,8 @@ class SoundVoltexExceedGear(
             info.add_child(Node.s16('skill_type', course.get('skill_type', 0)))
 
             # Calculate clear rate and average score
-            rate = getrates(course['season_id'], course.get('course_id', course.get('skill_level', -1)), course.get('skill_type', 0))
+            rate = getrates(course['season_id'], course.get('course_id', course.get('skill_level', -1)),
+                            course.get('skill_type', 0))
             if rate['attempts'] > 0:
                 info.add_child(Node.s32('clear_rate', int(100.0 * (rate['clears'] / rate['attempts']))))
                 info.add_child(Node.u32('avg_score', rate['total_score'] // rate['attempts']))
@@ -6436,6 +6437,20 @@ class SoundVoltexExceedGear(
             info.add_child(Node.s32('type', paramtype))
             info.add_child(
                 Node.s32_array('param', param.data['param']))  # This looks to be variable, so no validation on length
+
+        # Appeal frame
+        if profile.get_int('appeal_frame') != 0:
+            creator_item_node = Node.void('creator_item')
+            game.add_child(creator_item_node)
+            info = Node.void('info')
+            creator_item_node.add_child(info)
+            creator_type_node = Node.u32('creator_type',profile.get_int('appeal_frame'))
+            info.add_child(creator_type_node)
+            item_id_node = Node.u32('item_id',0)
+            info.add_child(item_id_node)
+            param_node = Node.u32('param',0)
+            info.add_child(param_node)
+
 
         # Blaster pass
         if game_config.get_bool('use_blasterpass'):
