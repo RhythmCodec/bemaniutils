@@ -20,6 +20,7 @@ class SoundVoltexBase(CoreHandler, CardManagerHandler, PASELIHandler, Base):
     CLEAR_TYPE_FAILED: Final[int] = DBConstants.SDVX_CLEAR_TYPE_FAILED
     CLEAR_TYPE_CLEAR: Final[int] = DBConstants.SDVX_CLEAR_TYPE_CLEAR
     CLEAR_TYPE_HARD_CLEAR: Final[int] = DBConstants.SDVX_CLEAR_TYPE_HARD_CLEAR
+    CLEAR_TYPE_MAXXIVE_CLEAR: Final[int] = DBConstants.SDVX_CLEAR_TYPE_MAXXIVE_CLEAR
     CLEAR_TYPE_ULTIMATE_CHAIN: Final[int] = DBConstants.SDVX_CLEAR_TYPE_ULTIMATE_CHAIN
     CLEAR_TYPE_PERFECT_ULTIMATE_CHAIN: Final[
         int
@@ -218,6 +219,7 @@ class SoundVoltexBase(CoreHandler, CardManagerHandler, PASELIHandler, Base):
             self.CLEAR_TYPE_FAILED,
             self.CLEAR_TYPE_CLEAR,
             self.CLEAR_TYPE_HARD_CLEAR,
+            self.CLEAR_TYPE_MAXXIVE_CLEAR,
             self.CLEAR_TYPE_ULTIMATE_CHAIN,
             self.CLEAR_TYPE_PERFECT_ULTIMATE_CHAIN,
         ]:

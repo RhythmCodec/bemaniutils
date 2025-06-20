@@ -30,6 +30,7 @@ class SoundVoltexExceedGear(
     GAME_CLEAR_TYPE_FAILED: Final[int] = 1
     GAME_CLEAR_TYPE_CLEAR: Final[int] = 2
     GAME_CLEAR_TYPE_HARD_CLEAR: Final[int] = 3
+    GAME_CLEAR_TYPE_MAXXIVE_CLEAR: Final[int] = 6
     GAME_CLEAR_TYPE_ULTIMATE_CHAIN: Final[int] = 4
     GAME_CLEAR_TYPE_PERFECT_ULTIMATE_CHAIN: Final[int] = 5
 
@@ -127,6 +128,7 @@ class SoundVoltexExceedGear(
             self.GAME_CLEAR_TYPE_FAILED: self.CLEAR_TYPE_FAILED,
             self.GAME_CLEAR_TYPE_CLEAR: self.CLEAR_TYPE_CLEAR,
             self.GAME_CLEAR_TYPE_HARD_CLEAR: self.CLEAR_TYPE_HARD_CLEAR,
+            self.GAME_CLEAR_TYPE_MAXXIVE_CLEAR: self.CLEAR_TYPE_MAXXIVE_CLEAR,
             self.GAME_CLEAR_TYPE_ULTIMATE_CHAIN: self.CLEAR_TYPE_ULTIMATE_CHAIN,
             self.GAME_CLEAR_TYPE_PERFECT_ULTIMATE_CHAIN: self.CLEAR_TYPE_PERFECT_ULTIMATE_CHAIN,
         }[clear_type]
@@ -137,6 +139,7 @@ class SoundVoltexExceedGear(
             self.CLEAR_TYPE_FAILED: self.GAME_CLEAR_TYPE_FAILED,
             self.CLEAR_TYPE_CLEAR: self.GAME_CLEAR_TYPE_CLEAR,
             self.CLEAR_TYPE_HARD_CLEAR: self.GAME_CLEAR_TYPE_HARD_CLEAR,
+            self.CLEAR_TYPE_MAXXIVE_CLEAR: self.GAME_CLEAR_TYPE_MAXXIVE_CLEAR,
             self.CLEAR_TYPE_ULTIMATE_CHAIN: self.GAME_CLEAR_TYPE_ULTIMATE_CHAIN,
             self.CLEAR_TYPE_PERFECT_ULTIMATE_CHAIN: self.GAME_CLEAR_TYPE_PERFECT_ULTIMATE_CHAIN,
         }[clear_type]
@@ -5791,6 +5794,7 @@ class SoundVoltexExceedGear(
                                 score.id,
                                 score.chart,
                                 score.points,
+                                score.data.get_dict('stats').get_int('exscore'),
                                 self.__db_to_game_clear_type(score.data.get_int('clear_type')),
                                 self.__db_to_game_grade(score.data.get_int('grade')),
                             ]
@@ -5822,6 +5826,7 @@ class SoundVoltexExceedGear(
         clear_map = {
             self.CLEAR_TYPE_NO_PLAY: 'NO PLAY',
             self.CLEAR_TYPE_HARD_CLEAR: 'HARD CLEAR',
+            self.CLEAR_TYPE_MAXXIVE_CLEAR: 'MAXXIVE CLEAR',
             self.CLEAR_TYPE_CLEAR: 'CLEAR',
             self.CLEAR_TYPE_FAILED: 'FAILED',
             self.CLEAR_TYPE_ULTIMATE_CHAIN: 'ULTIMATE CHAIN',
@@ -5872,6 +5877,7 @@ class SoundVoltexExceedGear(
                 'long_rate': track.child_value('long_rate'),
                 'vol_rate': track.child_value('vol_rate'),
                 'critical': track.child_value('critical'),
+                'just': track.child_value('just'),
                 'near': track.child_value('near'),
                 'error': track.child_value('error'),
             }
@@ -6088,7 +6094,7 @@ class SoundVoltexExceedGear(
                     'grade': grade,
                     'exscore': exscore,
                 },
-            )
+                )
 
         # Return a blank response
         return Node.void('game')
@@ -6233,7 +6239,7 @@ class SoundVoltexExceedGear(
                         'grade': grade,
                         'exscore': exscore,
                     },
-                )
+                    )
 
         # Grab last information and player options.
         lastdict = newprofile.get_dict('last')
