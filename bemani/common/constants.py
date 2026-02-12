@@ -139,6 +139,7 @@ class VersionConstants:
     SDVX_GRAVITY_WARS: Final[int] = 3
     SDVX_HEAVENLY_HAVEN: Final[int] = 4
     SDVX_EXCEED_GEAR: Final[int] = 6
+    SDVX_NABLA: Final[int] = 7
 
 
 class APIConstants(Enum):
