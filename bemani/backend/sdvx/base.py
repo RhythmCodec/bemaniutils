@@ -70,7 +70,7 @@ class SoundVoltexBase(CoreHandler, CardManagerHandler, PASELIHandler, Base):
         return self.format_profile(userid, profile)
 
     def new_profile_by_refid(
-        self, refid: Optional[str], name: Optional[str], locid: Optional[int]
+            self, refid: Optional[str], name: Optional[str], locid: Optional[int]
     ) -> Node:
         """
         Given a RefID and an optional name, create a profile and then return
@@ -105,7 +105,7 @@ class SoundVoltexBase(CoreHandler, CardManagerHandler, PASELIHandler, Base):
         return Node.void("game")
 
     def unformat_profile(
-        self, userid: UserID, request: Node, oldprofile: Profile
+            self, userid: UserID, request: Node, oldprofile: Profile
     ) -> Profile:
         """
         Base handler for profile parsing. Given a request and an old profile,
@@ -155,11 +155,11 @@ class SoundVoltexBase(CoreHandler, CardManagerHandler, PASELIHandler, Base):
             # We saw an attempt, keep the total attempts in sync.
             attempts[attempt.id][attempt.chart]["average"] = int(
                 (
-                    (
-                        attempts[attempt.id][attempt.chart]["average"]
-                        * attempts[attempt.id][attempt.chart]["total"]
-                    )
-                    + attempt.points
+                        (
+                                attempts[attempt.id][attempt.chart]["average"]
+                                * attempts[attempt.id][attempt.chart]["total"]
+                        )
+                        + attempt.points
                 )
                 / (attempts[attempt.id][attempt.chart]["total"] + 1)
             )
@@ -198,15 +198,15 @@ class SoundVoltexBase(CoreHandler, CardManagerHandler, PASELIHandler, Base):
         return attempts
 
     def update_score(
-        self,
-        userid: Optional[UserID],
-        songid: int,
-        chart: int,
-        points: int,
-        clear_type: int,
-        grade: int,
-        combo: int,
-        stats: Optional[Dict[str, int]] = None,
+            self,
+            userid: Optional[UserID],
+            songid: int,
+            chart: int,
+            points: int,
+            clear_type: int,
+            grade: int,
+            combo: int,
+            stats: Optional[Dict[str, int]] = None,
     ) -> None:
         """
         Given various pieces of a score, update the user's high score and score
@@ -283,20 +283,24 @@ class SoundVoltexBase(CoreHandler, CardManagerHandler, PASELIHandler, Base):
         # If we have play stats, replace it
         if stats is not None:
             if raised:
-                # First we should save old ex score
+                # First we should save old ex score and volforce
                 oldEx = scoredata.get_dict("stats").get_int("exscore")
+                oldVolforce = scoredata.get_dict("stats").get_int("volforce")
 
-                # compare which ex is higher and replace it
+                # compare which score is higher and replace it
                 stats["exscore"] = max(oldEx, stats["exscore"])
+                stats["volforce"] = max(oldVolforce, stats["volforce"])
 
                 # We have stats, and there's a new high score, update the stats
                 scoredata.replace_dict("stats", stats)
 
-            # Update Ex Score
-            if stats["exscore"]>scoredata.get_dict("stats").get_int("exscore"):
+            # Update Ex Score and volforce only
+            else:
                 newstat = scoredata.get_dict("stats")
-                newstat.replace_int("exscore",stats["exscore"])
-                scoredata.replace_dict("stats",newstat)
+                newstat.replace_int("exscore", max(stats["exscore"], newstat.get_int("exscore")))
+                newstat.replace_int("volforce", max(stats["volforce"], newstat.get_int("volforce")))
+                scoredata.replace_dict("stats", newstat)
+
             history.replace_dict("stats", stats)
 
         # Look up where this score was earned
