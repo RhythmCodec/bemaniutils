@@ -110,12 +110,6 @@ class SoundVoltexNabla(
                     'tip': 'Enable Blaster Pass for VW and EG',
                     'category': 'game_config',
                     'setting': 'use_blasterpass'
-                },
-                {
-                    'name': 'Use New Year Special',
-                    'tip': 'Enable New Year Special BGM for login',
-                    'category': 'game_config',
-                    'setting': 'new_year_special'
                 }
             ]
         }
@@ -5417,19 +5411,14 @@ class SoundVoltexNabla(
         if not game_config.get_bool('disable_matching'):
             enable_event('MATCHING_MODE')
             enable_event('MATCHING_MODE_FREE_IP')
-        if game_config.get_bool('new_year_special'):
-            enable_event('NEW_YEAR_2022')
         enable_event('PLAYER_RADAR_ENABLE')
         enable_event('S_PUC_EFFECT_ENABLE')
         enable_event('ACHIEVEMENT_ENABLE')
         enable_event('VOLFORCE_ENABLE')
         enable_event('CONTINUATION')
         enable_event('TENKAICHI_MODE')
-        enable_event('SERIALCODE_JAPAN')
         enable_event('DEMOGAME_PLAY')
-        enable_event('KONAMI_50TH_LOGO')
         enable_event('LEVEL_LIMIT_EASING')
-        enable_event('APICAGACHADRAW\t30')
         enable_event('AKANAME_ENABLE')
         enable_event('PAUSE_ONLINEUPDATE')
         enable_event('QC_MODE')
@@ -5442,25 +5431,40 @@ class SoundVoltexNabla(
         # enable_event('APPEAL_CARD_UNLOCK\t0,20170914,0,20171014,0,20171116,0,20180201,0,20180607,0,20181206,0,20200326,0,20200611,4,10140732,6,10150431')
         enable_event('FAVORITE_APPEALCARD_MAX\t200')
         enable_event('FAVORITE_MUSIC_MAX\t200')
-        enable_event('EVENTDATE_APRILFOOL')
-        enable_event('OMEGA_ARS_ENABLE')
         enable_event('DISABLE_MONITOR_ID_CHECK')
-        enable_event('SKILL_ANALYZER_ABLE')
+        # 暂时禁用段位，因为没有段位表。
+        # enable_event('SKILL_ANALYZER_ABLE')
         enable_event('BLASTER_ABLE')
         enable_event('STANDARD_UNLOCK_ENABLE')
         enable_event('PLAYERJUDGEADJ_ENABLE')
         enable_event('MIXID_INPUT_ENABLE')
-        enable_event('EVENTDATE_ONIGO')
-        enable_event('EVENTDATE_GOTT')
-        enable_event('GENERATOR_ABLE')
         enable_event('CREW_SELECT_ABLE')
         enable_event('PREMIUM_TIME_ENABLE')
-        enable_event('OMEGA_ENABLE\t1,2,3,4,5,6,7,8,9')
-        enable_event('HEXA_ENABLE\t1,2,3,4,5')
         enable_event('MEGAMIX_ENABLE')
         enable_event('VALGENE_ENABLE')
         enable_event('ARENA_ENABLE')
         enable_event('DISP_PASELI_BANNER')
+        enable_event('CHARACTER_IGNORE_DISABLE\t122,123,131,139,140,143,149,160,162,163,164,167,170,174,175')
+        enable_event('STAMP_IGNORE_DISABLE\t273~312,773~820,993~1032,1245~1284,1469~1508,1585~1632,1633~1672,1737~1776,1777~1816,1897~1936')
+        enable_event('SUBBG_IGNORE_DISABLE\t166~185,281~346,369~381,419~438,464~482,515~552,595~616,660~673,714~727')
+        enable_event('BEGINNER_MUSIC_FOLDER\t56,78,80,86,87,91,111,128,134,275,278,180,697,770,769,779,842,948,940,1057,1056,1096,932,1136,1469,1480')
+        enable_event('BEGINNER_MUSIC_FOLDER\t1471,1758,1753,1739,1867,1866,1860,1857,1903,1904,1859,1863,1856,1864,1865,1916,1917,1914,1915,1918,1960')
+        enable_event('BEGINNER_MUSIC_FOLDER\t1961,1962,2029,2028,2030,2031,2035,2036,1905,1882,2058,2073,2070,2069,2074,2075,2067,2068,2066,2165,2166')
+        enable_event('BEGINNER_MUSIC_FOLDER\t2174,2175,2193,2195,2196,2213,2216,2214,2215,2205,2206,2224,2229,2228,2230,2241,2244,2243,2242,2245,2240')
+        enable_event('BEGINNER_MUSIC_FOLDER\t2251,2252,2220,2221,2289,2288,2291,2287,2290,2343,2344,2348,2353,2352,2345,2234,2351,2350,2209,2354')
+        enable_event('ARENA_LOCAL_TO_ONLINE_ENABLE')
+        enable_event('ARENA_ALTER_MODE_WINDOW_ENABLE')
+        enable_event('ARENA_PASS_MATCH_WINDOW_ENABLE')
+        enable_event('ARENA_VOTE_MODE_ENABLE')
+        enable_event('ARENA_LOCAL_ULTIMATE_MATCH_ALWAYS')
+        enable_event('MEGAMIX_BATTLE_MATCH_ENABLE')
+        enable_event('DISABLED_MUSIC_IN_ARENA_ONLINE')
+        enable_event('SINGLE_BATTLE_ENABLE')
+        enable_event('FAVORITE_CREW_ENABLE')
+        enable_event('TAMAADV_VALGENE_BONUS_ENABLE')
+        enable_event('ULTIMATE_MATCH_PLAYABLE_ALWAYS')
+        enable_event('OVER_POWER_ENABLE')
+        enable_event('APIPAGENE_ENABLE')
 
         # Event parameters
         extend = Node.void('extend')
@@ -5955,6 +5959,12 @@ class SoundVoltexNabla(
         self.data.triggers.broadcast_score(card_data, self.game, song)
 
         return Node.void('game')
+
+    def handle_game_sv7_save_valgene_request(self, request: Node) -> Node:
+        # 未支持
+        root = Node.void('game')
+        root.add_child(Node.s32('result', 1))
+        return root
 
     def handle_game_sv7_play_e_request(self, request: Node) -> Node:
         return Node.void('game')
