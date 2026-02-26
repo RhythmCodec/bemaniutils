@@ -21,6 +21,7 @@ class SoundVoltexFactory(Factory):
         SoundVoltexGravityWars,
         SoundVoltexHeavenlyHaven,
         SoundVoltexExceedGear,
+        SoundVoltexNabla,
     ]
 
     @classmethod

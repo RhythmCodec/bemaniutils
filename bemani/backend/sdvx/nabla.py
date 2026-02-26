@@ -615,6 +615,7 @@ class SoundVoltexNabla(
         refid = request.child_value('refid')
         root = self.get_profile_by_refid(refid)
         if root is not None:
+            root.add_child(Node.u8('result', 0))
             return root
 
         # Figure out if this user has an older profile or not
@@ -1201,6 +1202,7 @@ class SoundVoltexNabla(
         game.add_child(Node.string('name', profile.get_str('name')))
         game.add_child(Node.string('code', ID.format_extid(profile.extid)))
         game.add_child(Node.string('sdvx_id', ID.format_extid(profile.extid)))
+        game.add_child(Node.string('kac_id', profile.get_str('name')))
         game.add_child(Node.u16('appeal_id', profile.get_int('appealid')))
         game.add_child(Node.s16('skill_base_id', profile.get_int('skill_base_id')))
         game.add_child(Node.s16('skill_name_id', profile.get_int('skill_name_id')))
@@ -1241,6 +1243,43 @@ class SoundVoltexNabla(
         game.add_child(Node.u32('lanespeed', lastdict.get_int('lanespeed')))
         game.add_child(Node.s32('hispeed', lastdict.get_int('hispeed')))
         game.add_child(Node.s32('draw_adjust', lastdict.get_int('draw_adjust')))
+
+        additional_info_node = Node.void('additional_info')
+        game.add_child(additional_info_node)
+
+        eaappli = Node.void('eaappli')
+        game.add_child(eaappli)
+        eaappli.add_child(Node.s8('relation', 1))
+
+        cloud = Node.void('cloud')
+        game.add_child(cloud)
+        cloud.add_child(Node.s8('relation', 1))
+
+        game.add_child(Node.s32('block_no', 0))
+
+        arena = Node.void('arena')
+        game.add_child(arena)
+        arena.add_child(Node.s32('last_play_season', 0))
+        arena.add_child(Node.s32('ultimate_rank_num', 0))
+        arena.add_child(Node.s32('megamix_rate', 0))
+        arena.add_child(Node.s32('rank_point', 0))
+        arena.add_child(Node.s32('shop_point', 0))
+        arena.add_child(Node.s32('ultimate_rate', 0))
+        arena.add_child(Node.s32('rank_play_cnt', 0))
+        arena.add_child(Node.s32('ultimate_play_cnt', 0))
+
+        variant = Node.void('variant_gate')
+        game.add_child(variant)
+        variant.add_child(Node.s32('power', 0))
+        variant.add_child(Node.s32_array('over_radar', []))
+        element = Node.void('element')
+        variant.add_child(element)
+        element.add_child(Node.s32('notes', 0))
+        element.add_child(Node.s32('peak', 0))
+        element.add_child(Node.s32('tsumami', 0))
+        element.add_child(Node.s32('tricky', 0))
+        element.add_child(Node.s32('onehand', 0))
+        element.add_child(Node.s32('handtrip', 0))
 
         # Item unlocks
         itemnode = Node.void('item')
@@ -1303,7 +1342,7 @@ class SoundVoltexNabla(
                 info.add_child(Node.u32('param', 1))
 
         if game_config.get_bool('force_unlock_crew'):
-            for crewid in range(1, 999):
+            for crewid in range(1, 300):
                 info = Node.void('info')
                 itemnode.add_child(info)
                 info.add_child(Node.u8('type', 11))
@@ -1390,6 +1429,7 @@ class SoundVoltexNabla(
             eashop = Node.void('ea_shop')
             game.add_child(eashop)
 
+            eashop.add_child(Node.s32('packet_booster', 1))
             eashop.add_child(Node.bool('blaster_pass_enable', True))
             eashop.add_child(Node.u64('blaster_pass_limit_date', Time.now()))
 

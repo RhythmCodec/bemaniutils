@@ -363,7 +363,6 @@ class SoundVoltexBase(CoreHandler, CardManagerHandler, PASELIHandler, Base):
 
         # Get previous scores.
         old_hi_scores = self.data.local.music.get_scores(self.game, self.previous_version().version, userid)
-        old_scores = self.data.local.music.get_all_attempts(self.game, self.previous_version().version, userid)
 
         lv_override = self.level_override()
         ex_override = self.exscore_reset()
@@ -391,31 +390,9 @@ class SoundVoltexBase(CoreHandler, CardManagerHandler, PASELIHandler, Base):
             score.data.replace_dict("stats", stat)
             new_hi_score.append(score)
 
-        new_scores = []
-        for (_, score) in old_scores:
-            song = music.get((score.id, score.chart))
-            if song is None:
-                continue
-
-            stat = score.data.get_dict("stats")
-            diff = song.data.get_int("difficulty")
-            override = lv_override.get((score.id, score.chart))
-            if override is not None:
-                diff = override
-            if any(filter(lambda x: x == (score.id, score.chart), ex_override)):
-                stat.replace_int("exscore", 0)
-            stat.replace_int("volforce", self.calc_volforce(diff, score.points, score.data.get_int("clear_type"),
-                                                            score.data.get_int("grade")))
-
-            score.data.replace_dict("stats", stat)
-            new_scores.append(score)
-
         print(f"len(new_hi_score): {len(new_hi_score)}")
-        print(f"len(new_scores): {len(new_scores)}")
         if len(new_hi_score) != 0:
             self.data.local.music.put_scores(self.game, self.version, userid, self.get_machine_id(), new_hi_score)
-        if len(new_scores) != 0:
-            self.data.local.music.put_attempts(self.game, self.version, userid, self.get_machine_id(), new_scores)
 
 
 

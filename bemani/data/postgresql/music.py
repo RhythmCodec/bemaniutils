@@ -202,7 +202,7 @@ class MusicData(BaseData):
         ts = Time.now()
         params = [
             {"userid": userid, "songid": s.id, "chart": s.chart, "game": game.value, "version": version, "points": s.points,
-             "data": s.data, "timestamp": ts, "update": ts, "location": lid} for s in scores]
+             "data": self.serialize(s.data), "timestamp": ts, "update": ts, "location": lid} for s in scores]
         # Add to user score
         sql = (
             'INSERT INTO "score" ("userid", "musicid", "points", "data", "timestamp", "update", "lid") '
