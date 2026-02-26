@@ -81,7 +81,7 @@ music = Table(
 
 class MusicData(BaseData):
     def __get_musicid(
-        self, game: GameConstants, version: int, songid: int, songchart: int
+            self, game: GameConstants, version: int, songid: int, songchart: int
     ) -> int:
         """
         Given a game/version/songid/chart, look up the unique music ID for this song.
@@ -114,17 +114,17 @@ class MusicData(BaseData):
         return result["id"]
 
     def put_score(
-        self,
-        game: GameConstants,
-        version: int,
-        userid: UserID,
-        songid: int,
-        songchart: int,
-        location: int,
-        points: int,
-        data: Dict[str, Any],
-        new_record: bool,
-        timestamp: Optional[int] = None,
+            self,
+            game: GameConstants,
+            version: int,
+            userid: UserID,
+            songid: int,
+            songchart: int,
+            location: int,
+            points: int,
+            data: Dict[str, Any],
+            new_record: bool,
+            timestamp: Optional[int] = None,
     ) -> None:
         """
         Given a game/version/song/chart and user ID, save a new/updated high score.
@@ -149,19 +149,19 @@ class MusicData(BaseData):
         if new_record:
             # We want to update the timestamp/location to now if its a new record.
             sql = (
-                "INSERT INTO \"score\" (\"userid\", \"musicid\", \"points\", \"data\", \"timestamp\", \"update\", \"lid\") "
-                + "VALUES (:userid, :musicid, :points, :data, :timestamp, :update, :location) "
-                + "ON CONFLICT ON CONSTRAINT userid_musicid" +
-                " DO UPDATE SET data = EXCLUDED.data, points = EXCLUDED.points, "
-                + "timestamp = EXCLUDED.timestamp, \"update\" = EXCLUDED.\"update\", lid = EXCLUDED.lid"
+                    "INSERT INTO \"score\" (\"userid\", \"musicid\", \"points\", \"data\", \"timestamp\", \"update\", \"lid\") "
+                    + "VALUES (:userid, :musicid, :points, :data, :timestamp, :update, :location) "
+                    + "ON CONFLICT ON CONSTRAINT userid_musicid" +
+                    " DO UPDATE SET data = EXCLUDED.data, points = EXCLUDED.points, "
+                    + "timestamp = EXCLUDED.timestamp, \"update\" = EXCLUDED.\"update\", lid = EXCLUDED.lid"
             )
         else:
             # We only want to add the timestamp if it is new.
             sql = (
-                "INSERT INTO \"score\" (\"userid\", \"musicid\", \"points\", \"data\", \"timestamp\", \"update\", \"lid\") "
-                + "VALUES (:userid, :musicid, :points, :data, :timestamp, :update, :location) "
-                + "ON CONFLICT ON CONSTRAINT userid_musicid " +
-                "DO UPDATE SET data = EXCLUDED.data, points = EXCLUDED.points, \"update\" = EXCLUDED.\"update\""
+                    "INSERT INTO \"score\" (\"userid\", \"musicid\", \"points\", \"data\", \"timestamp\", \"update\", \"lid\") "
+                    + "VALUES (:userid, :musicid, :points, :data, :timestamp, :update, :location) "
+                    + "ON CONFLICT ON CONSTRAINT userid_musicid " +
+                    "DO UPDATE SET data = EXCLUDED.data, points = EXCLUDED.points, \"update\" = EXCLUDED.\"update\""
             )
         self.execute(
             sql,
@@ -176,18 +176,63 @@ class MusicData(BaseData):
             },
         )
 
+    def put_scores(
+            self,
+            game: GameConstants,
+            version: int,
+            userid: UserID,
+            lid: int,
+            scores: List[Score],
+    ) -> None:
+        """
+        Given a game/version/song/chart and user ID, save a new/updated high score.
+
+        Parameters:
+            game - Enum value representing a game series.
+            version - Integer representing which version of the game.
+            userid - Integer representing a user. Usually looked up with UserData.
+            songid - ID of the song according to the game.
+            songchart - Chart number according to the game.
+            location - Machine ID where this score was earned.
+            points - Points obtained on this song.
+            data - Data that the game wishes to record along with the score.
+            new_record - Whether this score was a new record or not.
+            timestamp - Optional integer specifying when the high score happened.
+        """
+        ts = Time.now()
+        params = [
+            {"userid": userid, "songid": s.id, "chart": s.chart, "game": game.value, "version": version, "points": s.points,
+             "data": s.data, "timestamp": ts, "update": ts, "location": lid} for s in scores]
+        # Add to user score
+        sql = (
+            'INSERT INTO "score" ("userid", "musicid", "points", "data", "timestamp", "update", "lid") '
+            'VALUES ('
+            ':userid,'
+            '    ('
+            '        SELECT id from "music" WHERE "songid" = :songid AND "chart" = :chart AND "game" = :game AND "version" = :version'
+            '    ),'
+            ':points, :data, :timestamp, :update, :location'
+            ') '
+            'ON CONFLICT ON CONSTRAINT userid_musicid '
+            'DO UPDATE SET data = EXCLUDED.data, points = EXCLUDED.points, "update" = EXCLUDED."update"'
+        )
+        self.execute(
+            sql,
+            params
+        )
+
     def put_attempt(
-        self,
-        game: GameConstants,
-        version: int,
-        userid: Optional[UserID],
-        songid: int,
-        songchart: int,
-        location: int,
-        points: int,
-        data: Dict[str, Any],
-        new_record: bool,
-        timestamp: Optional[int] = None,
+            self,
+            game: GameConstants,
+            version: int,
+            userid: Optional[UserID],
+            songid: int,
+            songchart: int,
+            location: int,
+            points: int,
+            data: Dict[str, Any],
+            new_record: bool,
+            timestamp: Optional[int] = None,
     ) -> None:
         """
         Given a game/version/song/chart and user ID, save a single score attempt.
@@ -213,8 +258,8 @@ class MusicData(BaseData):
 
         # Add to score history
         sql = (
-            "INSERT INTO \"score_history\" (userid, musicid, timestamp, lid, new_record, points, data) "
-            + "VALUES (:userid, :musicid, :timestamp, :location, :new_record, :points, :data)"
+                "INSERT INTO \"score_history\" (userid, musicid, timestamp, lid, new_record, points, data) "
+                + "VALUES (:userid, :musicid, :timestamp, :location, :new_record, :points, :data)"
         )
         try:
             self.execute(
@@ -234,13 +279,65 @@ class MusicData(BaseData):
                 f"There is already an attempt by {userid if userid is not None else 0} for music id {musicid} at {ts}"
             )
 
+    def put_attempts(
+            self,
+            game: GameConstants,
+            version: int,
+            userid: Optional[UserID],
+            location: int,
+            scores: List[Attempt],
+    ) -> None:
+        """
+        Given a game/version/song/chart and user ID, save a single score attempt.
+
+        Note that this is different than put_score above, because a user may have only one score
+        per song/chart in a given game, but they can have as many history entries as times played.
+
+        Parameters:
+            game - Enum value representing a game series.
+            version - Integer representing which version of the game.
+            userid - Integer representing a user. Usually looked up with UserData.
+            songid - ID of the song according to the game.
+            songchart - Chart number according to the game.
+            location - Machine ID where this score was earned.
+            points - Points obtained on this song.
+            data - Optional data that the game wishes to record along with the score.
+            new_record - Whether this score was a new record or not.
+            timestamp - Optional integer specifying when the attempt happened.
+        """
+        ts = Time.now()
+        params = [
+            {"userid": userid, "songid": s.id, "chart": s.chart, "game": game.value, "version": version, "points": s.points,
+             "data": s.data, "timestamp": ts, "location": location} for s in scores]
+
+        # Add to score history
+        sql = (
+            'INSERT INTO "score_history" ("userid", "musicid", "points", "data", "timestamp", "new_record", "lid") '
+            'VALUES ('
+            ':userid,'
+            '    ('
+            '        SELECT id from "music" WHERE "songid" = :songid AND "chart" = :chart AND "game" = :game AND "version" = :version'
+            '    ),'
+            ':points, :data, :timestamp, 0, :location'
+            ')'
+        )
+        try:
+            self.execute(
+                sql,
+                params
+            )
+        except IntegrityError:
+            raise ScoreSaveException(
+                f"There is already an attempt by {userid if userid is not None else 0} for music id {musicid} at {ts}"
+            )
+
     def get_score(
-        self,
-        game: GameConstants,
-        version: int,
-        userid: UserID,
-        songid: int,
-        songchart: int,
+            self,
+            game: GameConstants,
+            version: int,
+            userid: UserID,
+            songid: int,
+            songchart: int,
     ) -> Optional[Score]:
         """
         Look up a user's previous high score.
@@ -256,10 +353,10 @@ class MusicData(BaseData):
             The optional data stored by the game previously, or None if no score exists.
         """
         sql = (
-            "SELECT music.songid AS songid, music.chart AS chart, score.id AS scorekey, score.timestamp AS timestamp, score.update AS \"update\", score.lid AS lid, "
-            + "(select COUNT(score_history.timestamp) FROM score_history WHERE score_history.musicid = music.id AND score_history.userid = :userid) AS plays, "
-            + "score.points AS points, score.data AS data FROM score, music WHERE score.userid = :userid AND score.musicid = music.id "
-            + "AND music.game = :game AND music.version = :version AND music.songid = :songid AND music.chart = :songchart"
+                "SELECT music.songid AS songid, music.chart AS chart, score.id AS scorekey, score.timestamp AS timestamp, score.update AS \"update\", score.lid AS lid, "
+                + "(select COUNT(score_history.timestamp) FROM score_history WHERE score_history.musicid = music.id AND score_history.userid = :userid) AS plays, "
+                + "score.points AS points, score.data AS data FROM score, music WHERE score.userid = :userid AND score.musicid = music.id "
+                + "AND music.game = :game AND music.version = :version AND music.songid = :songid AND music.chart = :songchart"
         )
         cursor = self.execute(
             sql,
@@ -289,7 +386,7 @@ class MusicData(BaseData):
         )
 
     def get_score_by_key(
-        self, game: GameConstants, version: int, key: int
+            self, game: GameConstants, version: int, key: int
     ) -> Optional[Tuple[UserID, Score]]:
         """
         Look up previous high score by key.
@@ -303,11 +400,11 @@ class MusicData(BaseData):
             The optional data stored by the game previously, or None if no score exists.
         """
         sql = (
-            "SELECT music.songid AS songid, music.chart AS chart, score.id AS scorekey, score.timestamp AS timestamp, score.update AS \"update\", "
-            + "score.userid AS userid, score.lid AS lid, "
-            + "(select COUNT(score_history.timestamp) FROM score_history WHERE score_history.musicid = music.id AND score_history.userid = score.userid) AS plays, "
-            + "score.points AS points, score.data AS data FROM score, music WHERE score.id = :scorekey AND score.musicid = music.id "
-            + "AND music.game = :game AND music.version = :version"
+                "SELECT music.songid AS songid, music.chart AS chart, score.id AS scorekey, score.timestamp AS timestamp, score.update AS \"update\", "
+                + "score.userid AS userid, score.lid AS lid, "
+                + "(select COUNT(score_history.timestamp) FROM score_history WHERE score_history.musicid = music.id AND score_history.userid = score.userid) AS plays, "
+                + "score.points AS points, score.data AS data FROM score, music WHERE score.id = :scorekey AND score.musicid = music.id "
+                + "AND music.game = :game AND music.version = :version"
         )
         cursor = self.execute(
             sql,
@@ -338,12 +435,12 @@ class MusicData(BaseData):
         )
 
     def get_scores(
-        self,
-        game: GameConstants,
-        version: int,
-        userid: UserID,
-        since: Optional[int] = None,
-        until: Optional[int] = None,
+            self,
+            game: GameConstants,
+            version: int,
+            userid: UserID,
+            since: Optional[int] = None,
+            until: Optional[int] = None,
     ) -> List[Score]:
         """
         Look up all of a user's previous high scores.
@@ -357,10 +454,10 @@ class MusicData(BaseData):
             A list of Score objects representing all high scores for a game.
         """
         sql = (
-            "SELECT music.songid AS songid, music.chart AS chart, score.id AS scorekey, score.timestamp AS timestamp, score.update AS \"update\", score.lid AS lid, "
-            + "(select COUNT(score_history.timestamp) FROM score_history WHERE score_history.musicid = music.id AND score_history.userid = :userid) AS plays, "
-            + "score.points AS points, score.data AS data FROM score, music WHERE score.userid = :userid AND score.musicid = music.id "
-            + "AND music.game = :game AND music.version = :version"
+                "SELECT music.songid AS songid, music.chart AS chart, score.id AS scorekey, score.timestamp AS timestamp, score.update AS \"update\", score.lid AS lid, "
+                + "(select COUNT(score_history.timestamp) FROM score_history WHERE score_history.musicid = music.id AND score_history.userid = :userid) AS plays, "
+                + "score.points AS points, score.data AS data FROM score, music WHERE score.userid = :userid AND score.musicid = music.id "
+                + "AND music.game = :game AND music.version = :version"
         )
         if since is not None:
             sql = sql + " AND score.update >= :since"
@@ -396,7 +493,7 @@ class MusicData(BaseData):
         return scores
 
     def get_most_played(
-        self, game: GameConstants, version: int, userid: UserID, count: int
+            self, game: GameConstants, version: int, userid: UserID, count: int
     ) -> List[Tuple[int, int]]:
         """
         Look up a user's most played songs.
@@ -411,10 +508,10 @@ class MusicData(BaseData):
             A list of tuples, containing the songid and the number of plays across all charts for that song.
         """
         sql = (
-            "SELECT music.songid AS songid, COUNT(score_history.timestamp) AS plays FROM score_history, music "
-            + "WHERE score_history.userid = :userid AND score_history.musicid = music.id "
-            + "AND music.game = :game AND music.version = :version "
-            + "GROUP BY songid ORDER BY plays DESC LIMIT :count"
+                "SELECT music.songid AS songid, COUNT(score_history.timestamp) AS plays FROM score_history, music "
+                + "WHERE score_history.userid = :userid AND score_history.musicid = music.id "
+                + "AND music.game = :game AND music.version = :version "
+                + "GROUP BY songid ORDER BY plays DESC LIMIT :count"
         )
         cursor = self.execute(
             sql,
@@ -428,7 +525,7 @@ class MusicData(BaseData):
         return most_played
 
     def get_last_played(
-        self, game: GameConstants, version: int, userid: UserID, count: int
+            self, game: GameConstants, version: int, userid: UserID, count: int
     ) -> List[Tuple[int, int]]:
         """
         Look up a user's last played songs.
@@ -443,10 +540,10 @@ class MusicData(BaseData):
             A list of tuples, containing the songid and the last played time for this song.
         """
         sql = (
-            "SELECT DISTINCT(music.songid) AS songid, score_history.timestamp AS timestamp FROM score_history, music "
-            + "WHERE score_history.userid = :userid AND score_history.musicid = music.id "
-            + "AND music.game = :game AND music.version = :version "
-            + "ORDER BY timestamp DESC LIMIT :count"
+                "SELECT DISTINCT(music.songid) AS songid, score_history.timestamp AS timestamp FROM score_history, music "
+                + "WHERE score_history.userid = :userid AND score_history.musicid = music.id "
+                + "AND music.game = :game AND music.version = :version "
+                + "ORDER BY timestamp DESC LIMIT :count"
         )
         cursor = self.execute(
             sql,
@@ -460,11 +557,11 @@ class MusicData(BaseData):
         return last_played
 
     def get_hit_chart(
-        self,
-        game: GameConstants,
-        version: int,
-        count: int,
-        days: Optional[int] = None,
+            self,
+            game: GameConstants,
+            version: int,
+            count: int,
+            days: Optional[int] = None,
     ) -> List[Tuple[int, int]]:
         """
         Look up a game's most played songs.
@@ -478,8 +575,8 @@ class MusicData(BaseData):
             A list of tuples, containing the songid and the number of plays across all charts for that song.
         """
         sql = (
-            "SELECT music.songid AS songid, COUNT(score_history.timestamp) AS plays FROM score_history, music "
-            + "WHERE score_history.musicid = music.id AND music.game = :game AND music.version = :version "
+                "SELECT music.songid AS songid, COUNT(score_history.timestamp) AS plays FROM score_history, music "
+                + "WHERE score_history.musicid = music.id AND music.game = :game AND music.version = :version "
         )
         timestamp: Optional[int] = None
         if days is not None:
@@ -505,11 +602,11 @@ class MusicData(BaseData):
         return most_played
 
     def get_song(
-        self,
-        game: GameConstants,
-        version: int,
-        songid: int,
-        songchart: int,
+            self,
+            game: GameConstants,
+            version: int,
+            songid: int,
+            songchart: int,
     ) -> Optional[Song]:
         """
         Given a game/version/songid/chart, look up the name, artist and genre of that song.
@@ -524,9 +621,9 @@ class MusicData(BaseData):
             A Song object representing the song details
         """
         sql = (
-            "SELECT music.name AS name, music.artist AS artist, music.genre AS genre, music.data AS data "
-            + "FROM music WHERE music.game = :game AND music.version = :version AND "
-            + "music.songid = :songid AND music.chart = :songchart"
+                "SELECT music.name AS name, music.artist AS artist, music.genre AS genre, music.data AS data "
+                + "FROM music WHERE music.game = :game AND music.version = :version AND "
+                + "music.songid = :songid AND music.chart = :songchart"
         )
         cursor = self.execute(
             sql,
@@ -553,9 +650,9 @@ class MusicData(BaseData):
         )
 
     def get_all_songs(
-        self,
-        game: GameConstants,
-        version: Optional[int] = None,
+            self,
+            game: GameConstants,
+            version: Optional[int] = None,
     ) -> List[Song]:
         """
         Given a game and a version, look up all song/chart combos associated with that game.
@@ -597,12 +694,12 @@ class MusicData(BaseData):
         return all_songs
 
     def get_all_versions_of_song(
-        self,
-        game: GameConstants,
-        version: int,
-        songid: int,
-        songchart: int,
-        interested_versions: Optional[List[int]] = None,
+            self,
+            game: GameConstants,
+            version: int,
+            songid: int,
+            songchart: int,
+            interested_versions: Optional[List[int]] = None,
     ) -> List[Song]:
         """
         Given a game/version/songid/chart, look up all versions of that song across all game versions.
@@ -641,14 +738,14 @@ class MusicData(BaseData):
         return all_songs
 
     def get_all_scores(
-        self,
-        game: GameConstants,
-        version: Optional[int] = None,
-        userid: Optional[UserID] = None,
-        songid: Optional[int] = None,
-        songchart: Optional[int] = None,
-        since: Optional[int] = None,
-        until: Optional[int] = None,
+            self,
+            game: GameConstants,
+            version: Optional[int] = None,
+            userid: Optional[UserID] = None,
+            songid: Optional[int] = None,
+            songchart: Optional[int] = None,
+            since: Optional[int] = None,
+            until: Optional[int] = None,
     ) -> List[Tuple[UserID, Score]]:
         """
         Look up all of a game's high scores for all users.
@@ -731,11 +828,11 @@ class MusicData(BaseData):
         return scores
 
     def get_all_records(
-        self,
-        game: GameConstants,
-        version: Optional[int] = None,
-        userlist: Optional[List[UserID]] = None,
-        locationlist: Optional[List[int]] = None,
+            self,
+            game: GameConstants,
+            version: Optional[int] = None,
+            userlist: Optional[List[UserID]] = None,
+            locationlist: Optional[List[int]] = None,
     ) -> List[Tuple[UserID, Score]]:
         """
         Look up all of a game's records, only returning the top score for each song. For score ties,
@@ -793,10 +890,10 @@ class MusicData(BaseData):
 
         # Now, join it up against the score and music table to grab the info we need
         sql = (
-            "SELECT ({}) AS songid, ({}) AS chart, score.points AS points, score.userid AS userid, score.id AS scorekey, score.data AS data, "
-            + "score.timestamp AS timestamp, score.update AS \"update\", "
-            + "score.lid AS lid, (select COUNT(score_history.timestamp) FROM score_history WHERE score_history.musicid = score.musicid) AS plays "
-            + "FROM score, ({}) records WHERE records.userid = score.userid AND records.musicid = score.musicid"
+                "SELECT ({}) AS songid, ({}) AS chart, score.points AS points, score.userid AS userid, score.id AS scorekey, score.data AS data, "
+                + "score.timestamp AS timestamp, score.update AS \"update\", "
+                + "score.lid AS lid, (select COUNT(score_history.timestamp) FROM score_history WHERE score_history.musicid = score.musicid) AS plays "
+                + "FROM score, ({}) records WHERE records.userid = score.userid AND records.musicid = score.musicid"
         ).format(songidquery, chartquery, records_sql)
         cursor = self.execute(sql, params)
 
@@ -822,7 +919,7 @@ class MusicData(BaseData):
         return scores
 
     def get_attempt_by_key(
-        self, game: GameConstants, version: int, key: int
+            self, game: GameConstants, version: int, key: int
     ) -> Optional[Tuple[UserID, Attempt]]:
         """
         Look up a previous attempt by key.
@@ -836,9 +933,9 @@ class MusicData(BaseData):
             The optional data stored by the game previously, or None if no score exists.
         """
         sql = (
-            "SELECT music.songid AS songid, music.chart AS chart, score_history.id AS scorekey, score_history.timestamp AS timestamp, score_history.userid AS userid, "
-            + "score_history.lid AS lid, score_history.new_record AS new_record, score_history.points AS points, score_history.data AS data FROM score_history, music "
-            + "WHERE score_history.id = :scorekey AND score_history.musicid = music.id AND music.game = :game AND music.version = :version"
+                "SELECT music.songid AS songid, music.chart AS chart, score_history.id AS scorekey, score_history.timestamp AS timestamp, score_history.userid AS userid, "
+                + "score_history.lid AS lid, score_history.new_record AS new_record, score_history.points AS points, score_history.data AS data FROM score_history, music "
+                + "WHERE score_history.id = :scorekey AND score_history.musicid = music.id AND music.game = :game AND music.version = :version"
         )
         cursor = self.execute(
             sql,
@@ -868,15 +965,15 @@ class MusicData(BaseData):
         )
 
     def get_all_attempts(
-        self,
-        game: GameConstants,
-        version: Optional[int] = None,
-        userid: Optional[UserID] = None,
-        songid: Optional[int] = None,
-        songchart: Optional[int] = None,
-        timelimit: Optional[int] = None,
-        limit: Optional[int] = None,
-        offset: Optional[int] = None,
+            self,
+            game: GameConstants,
+            version: Optional[int] = None,
+            userid: Optional[UserID] = None,
+            songid: Optional[int] = None,
+            songchart: Optional[int] = None,
+            timelimit: Optional[int] = None,
+            limit: Optional[int] = None,
+            offset: Optional[int] = None,
     ) -> List[Tuple[Optional[UserID], Attempt]]:
         """
         Look up all of the attempts to score for a particular game.

@@ -1,5 +1,6 @@
 # vim: set fileencoding=utf-8
-from typing import Dict, Optional
+import math
+from typing import Dict, Optional, List
 from typing_extensions import Final
 
 from bemani.backend.base import Base
@@ -48,6 +49,18 @@ class SoundVoltexBase(CoreHandler, CardManagerHandler, PASELIHandler, Base):
         """
         Returns the previous version of the game, based on this game. Should
         be overridden.
+        """
+        return None
+
+    def level_override(self) -> Optional[List[Dict[str, int]]]:
+        """
+        Get a list of level overrides for songs.
+        """
+        return None
+
+    def exscore_reset(self) -> Optional[List[Dict[str, int]]]:
+        """
+        Get a list of charts which exscore should reset.
         """
         return None
 
@@ -332,3 +345,104 @@ class SoundVoltexBase(CoreHandler, CardManagerHandler, PASELIHandler, Base):
             history,
             raised,
         )
+
+    def migrate(self, userid: UserID) -> None:
+        achievements = self.data.local.user.get_achievements(self.game, self.previous_version().version, userid)
+        # Remove all course scores.
+        for i in range(len(achievements) - 1, -1, -1):
+            if achievements[i].type == "course":
+                del achievements[i]
+
+        print(f"len(achievements): {len(achievements)}")
+        # Migrate achievements to new version
+        self.data.local.user.put_achievements(self.game, self.version, userid, achievements)
+
+        # Now process music score update.
+        # Get music id for current version
+        music = {(m.id, m.chart): m for m in self.data.local.music.get_all_songs(self.game, self.version)}
+
+        # Get previous scores.
+        old_hi_scores = self.data.local.music.get_scores(self.game, self.previous_version().version, userid)
+        old_scores = self.data.local.music.get_all_attempts(self.game, self.previous_version().version, userid)
+
+        lv_override = self.level_override()
+        ex_override = self.exscore_reset()
+
+        lv_override = {(item['songid'], item['chart']): item['difficulty'] for item in
+                       (lv_override if lv_override is not None else [])}
+        ex_override = [(item['songid'], item['chart']) for item in (ex_override if ex_override is not None else [])]
+
+        new_hi_score = []
+        for score in old_hi_scores:
+            song = music.get((score.id, score.chart))
+            if song is None:
+                continue
+
+            stat = score.data.get_dict("stats")
+            diff = song.data.get_int("difficulty")
+            override = lv_override.get((score.id, score.chart))
+            if override is not None:
+                diff = override
+            if any(filter(lambda x: x == (score.id, score.chart), ex_override)):
+                stat.replace_int("exscore", 0)
+            stat.replace_int("volforce", self.calc_volforce(diff, score.points, score.data.get_int("clear_type"),
+                                                            score.data.get_int("grade")))
+
+            score.data.replace_dict("stats", stat)
+            new_hi_score.append(score)
+
+        new_scores = []
+        for (_, score) in old_scores:
+            song = music.get((score.id, score.chart))
+            if song is None:
+                continue
+
+            stat = score.data.get_dict("stats")
+            diff = song.data.get_int("difficulty")
+            override = lv_override.get((score.id, score.chart))
+            if override is not None:
+                diff = override
+            if any(filter(lambda x: x == (score.id, score.chart), ex_override)):
+                stat.replace_int("exscore", 0)
+            stat.replace_int("volforce", self.calc_volforce(diff, score.points, score.data.get_int("clear_type"),
+                                                            score.data.get_int("grade")))
+
+            score.data.replace_dict("stats", stat)
+            new_scores.append(score)
+
+        print(f"len(new_hi_score): {len(new_hi_score)}")
+        print(f"len(new_scores): {len(new_scores)}")
+        if len(new_hi_score) != 0:
+            self.data.local.music.put_scores(self.game, self.version, userid, self.get_machine_id(), new_hi_score)
+        if len(new_scores) != 0:
+            self.data.local.music.put_attempts(self.game, self.version, userid, self.get_machine_id(), new_scores)
+
+
+
+    CLEAR_TYPE_COEF_MAP: Dict[int, float] = {
+        CLEAR_TYPE_NO_PLAY: 0.0,
+        CLEAR_TYPE_FAILED: 0.5,
+        CLEAR_TYPE_CLEAR: 1.0,
+        CLEAR_TYPE_HARD_CLEAR: 1.02,
+        CLEAR_TYPE_MAXXIVE_CLEAR: 1.04,
+        CLEAR_TYPE_ULTIMATE_CHAIN: 1.05,
+        CLEAR_TYPE_PERFECT_ULTIMATE_CHAIN: 1.10
+    }
+
+    GRADE_COEF_MAP: Dict[int, float] = {
+        GRADE_NO_PLAY: 0.00,
+        GRADE_D: 0.80,
+        GRADE_C: 0.82,
+        GRADE_B: 0.85,
+        GRADE_A: 0.88,
+        GRADE_A_PLUS: 0.91,
+        GRADE_AA: 0.94,
+        GRADE_AA_PLUS: 0.97,
+        GRADE_AAA: 1.00,
+        GRADE_AAA_PLUS: 1.02,
+        GRADE_S: 1.05,
+    }
+
+    def calc_volforce(self, difficluty, score, clear_type, grade):
+        return math.floor(
+            difficluty * (score / 10000000) * self.GRADE_COEF_MAP[grade] * self.CLEAR_TYPE_COEF_MAP[clear_type] * 20)

@@ -117,6 +117,33 @@ class SoundVoltexNabla(
     def previous_version(self) -> Optional['SoundVoltexBase']:
         return SoundVoltexExceedGear(self.data, self.config, self.model)
 
+    def level_override(self) -> Optional[List[Dict[str, int]]]:
+        return [
+            {'songid': 1, 'chart': 1, 'difficulty': 10}, {'songid': 18, 'chart': 1, 'difficulty': 8},
+            {'songid': 18, 'chart': 2, 'difficulty': 10}, {'songid': 73, 'chart': 2, 'difficulty': 17},
+            {'songid': 48, 'chart': 1, 'difficulty': 8}, {'songid': 75, 'chart': 2, 'difficulty': 12},
+            {'songid': 124, 'chart': 2, 'difficulty': 16}, {'songid': 65, 'chart': 1, 'difficulty': 7},
+            {'songid': 66, 'chart': 1, 'difficulty': 8}, {'songid': 27, 'chart': 1, 'difficulty': 7},
+            {'songid': 27, 'chart': 2, 'difficulty': 12}, {'songid': 68, 'chart': 1, 'difficulty': 9},
+            {'songid': 6, 'chart': 1, 'difficulty': 7}, {'songid': 6, 'chart': 2, 'difficulty': 12},
+            {'songid': 16, 'chart': 1, 'difficulty': 7}, {'songid': 2, 'chart': 1, 'difficulty': 10},
+            {'songid': 60, 'chart': 3, 'difficulty': 17}, {'songid': 5, 'chart': 2, 'difficulty': 13},
+            {'songid': 128, 'chart': 2, 'difficulty': 13}, {'songid': 9, 'chart': 2, 'difficulty': 1},
+            {'songid': 340, 'chart': 2, 'difficulty': 13}, {'songid': 247, 'chart': 3, 'difficulty': 18},
+            {'songid': 282, 'chart': 2, 'difficulty': 17}, {'songid': 288, 'chart': 2, 'difficulty': 13},
+            {'songid': 699, 'chart': 3, 'difficulty': 18}, {'songid': 595, 'chart': 2, 'difficulty': 17},
+            {'songid': 507, 'chart': 2, 'difficulty': 17}, {'songid': 1044, 'chart': 2, 'difficulty': 16},
+            {'songid': 948, 'chart': 4, 'difficulty': 16}, {'songid': 1115, 'chart': 4, 'difficulty': 16},
+            {'songid': 1215, 'chart': 2, 'difficulty': 15}, {'songid': 1152, 'chart': 2, 'difficulty': 15},
+            {'songid': 1282, 'chart': 3, 'difficulty': 17.5}, {'songid': 1343, 'chart': 2, 'difficulty': 16},
+            {'songid': 1300, 'chart': 3, 'difficulty': 17.5}, {'songid': 1938, 'chart': 2, 'difficulty': 18}
+        ]
+
+    def exscore_reset(self) -> Optional[List[Dict[str, int]]]:
+        return [{'songid': 360, 'chart': 3}, {'songid': 580, 'chart': 2}, {'songid': 1121, 'chart': 4},
+                {'songid': 1185, 'chart': 2}, {'songid': 1199, 'chart': 4}, {'songid': 1738, 'chart': 4},
+                {'songid': 2242, 'chart': 0}]
+
     def __game_to_db_clear_type(self, clear_type: int) -> int:
         return {
             self.GAME_CLEAR_TYPE_NO_PLAY: self.CLEAR_TYPE_NO_PLAY,
@@ -494,7 +521,7 @@ class SoundVoltexNabla(
                     catalog = Node.void('catalog')
                     apigene.add_child(catalog)
                     catalog.add_child(Node.s32('apigene_id', cata['volume']))
-                    catalog.add_child(Node.s32('rarity', apigene['rarity'][item['type'].__str__()]))
+                    catalog.add_child(Node.s32('rarity', apigene_data['rarity'][item['type'].__str__()]))
                     catalog.add_child(Node.s32('item_type', item['type']))
                     catalog.add_child(Node.s32('item_id', iid))
 
@@ -623,6 +650,11 @@ class SoundVoltexNabla(
         name = request.child_value('name')
         loc = ID.parse_machine_id(request.child_value('locid'))
         self.new_profile_by_refid(refid, name, loc)
+
+        # Migrate old data if possible
+        userid = self.data.remote.user.from_refid(self.game, self.version, refid)
+        if userid is not None:
+            self.migrate(userid)
 
         root = Node.void('game')
         return root
@@ -840,7 +872,6 @@ class SoundVoltexNabla(
             combo,
             stats,
         )
-
 
         self.data.triggers.broadcast_score(card_data, self.game, song)
 

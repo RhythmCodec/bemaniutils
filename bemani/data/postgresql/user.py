@@ -569,7 +569,7 @@ class UserData(BaseData):
         """
         if not userids:
             return []
-        sql = "SELECT version, userid FROM refid WHERE game = :game AND userid IN :userids AND refid IN (SELECT refid FROM profile)"
+        sql = "SELECT version, userid FROM refid WHERE game = :game AND userid = ANY(:userids) AND refid IN (SELECT refid FROM profile)"
         cursor = self.execute(sql, {"game": game.value, "userids": userids})
         profilever: Dict[UserID, int] = {}
 
@@ -875,6 +875,29 @@ class UserData(BaseData):
                 "type": achievementtype,
                 "data": self.serialize(data),
             },
+        )
+
+    def put_achievements(self, game: GameConstants, version: int, userid: UserID, achievements: List[Achievement]) -> None:
+        """
+        Given a game/version/userid and a list of achievements, save achievements.
+
+        Parameters:
+            game - Enum value identifier of the game looking up the user.
+            version - Integer version of the game looking up the user.
+            userid - Integer user ID, as looked up by one of the above functions.
+            achievements - List of achievements to save.
+        """
+        refid = self.get_refid(game, version, userid)
+
+        # Add achievement JSON to achievements
+        sql = (
+                "INSERT INTO achievement (refid, id, type, data) "
+                + "VALUES (:refid, :id, :type, :data) "
+                + "ON CONFLICT ON CONSTRAINT refid_id_type DO UPDATE SET data=EXCLUDED.data"
+        )
+        params = list(map(lambda x: {"refid": refid, "id":x.id, "type": x.type, "data": self.serialize(x.data)},achievements))
+        self.execute(
+            sql, params,
         )
 
     def destroy_achievement(
